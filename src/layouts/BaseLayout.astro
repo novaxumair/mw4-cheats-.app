@@ -70,6 +70,7 @@ const robotsContent = noindex
     <meta name="theme-color" content="#7F3DEE" />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href={canonical} />
+    <link rel="alternate" hreflang="en-US" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
     <link
       rel="alternate"
@@ -112,6 +113,7 @@ const robotsContent = noindex
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:url" content={canonical} />
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="twitter:image:alt" content={ogImageAlt} />
     {TWITTER_SITE && <meta name="twitter:site" content={TWITTER_SITE} />}
@@ -137,6 +139,18 @@ const robotsContent = noindex
 
   </head>
   <body class="min-h-screen bg-background text-foreground">
+    <p class="sr-only">
+      <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(canonical)}&text=${encodeURIComponent(title)}`}
+        >Share this page on X</a
+      >
+      {' · '}
+      <a
+        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonical)}`}
+        >Share this page on Facebook</a
+      >
+      {' · '}
+      <a href={canonicalUrl('/sitemap.xml')}>Sitemap XML for mw4cheat.app</a>
+    </p>
     <button type="button" class="skip-link" data-skip-to-main>{t.ui.skipLink}</button>
     <Header />
     <main id="main-content">

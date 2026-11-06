@@ -4,7 +4,16 @@ import { DEFAULT_SITE_ORIGIN } from './normalize-site-origin.mjs';
 
 const root = process.cwd();
 
-const SITE_ORIGIN = DEFAULT_SITE_ORIGIN;
+let SITE_ORIGIN = DEFAULT_SITE_ORIGIN;
+const cfPages = process.env.CF_PAGES_URL?.trim();
+if (cfPages) {
+  try {
+    const u = new URL(cfPages);
+    if (u.protocol === 'https:') SITE_ORIGIN = u.origin;
+  } catch {
+    /* keep DEFAULT_SITE_ORIGIN */
+  }
+}
 
 const dist = path.join(root, 'dist');
 const source = path.join(dist, 'sitemap-0.xml');
@@ -39,7 +48,10 @@ function formatUrlset(xml) {
     .replace(/<\/priority>/g, '</priority>\n');
 }
 
-const formatted = formatUrlset(raw);
+let formatted = formatUrlset(raw);
+if (SITE_ORIGIN !== DEFAULT_SITE_ORIGIN) {
+  formatted = formatted.split(DEFAULT_SITE_ORIGIN).join(SITE_ORIGIN);
+}
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
 
 const expectedHost = new URL(SITE_ORIGIN).hostname.toLowerCase();

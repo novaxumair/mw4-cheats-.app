@@ -80,7 +80,7 @@ const sourceTimestamp = (path?: string) => {
                   <div class="forum-post-actions">
                     {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
                     <a href={forumPostPath(post.slug)}><Icon name="messageCircle" size={15} /> {post.commentsCount} comments</a>
-                    <a href={forumPostPath(post.slug)}><Icon name="arrowRight" size={15} /> Read discussion</a>
+                    <a href={forumPostPath(post.slug)}><Icon name="arrowRight" size={15} /> Open thread — {post.title}</a>
                   </div>
                 </div>
               </article>

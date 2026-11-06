@@ -45,7 +45,7 @@ const seo = getBlogSeo(post.slug) ?? {
 const isFeaturesCompetitive = post.slug === 'best-mw4-cheat-features-competitive';
 const breadcrumbs = [
   { name: 'Home', path: '/' },
-  { name: 'Blog', path: '/blog/' },
+  { name: 'MW4 blog guides', path: '/blog/' },
   { name: post.title, path: postPath },
 ];
 
@@ -202,14 +202,14 @@ const articleH1 =
 
           <nav class="blog-article__actions" aria-label="Continue reading">
             <Button as="a" href={checkoutPath('mw4')} variant="primary" aria-label={t.ui.checkoutAria}>
-              {isFeaturesCompetitive ? 'Open MW4 checkout' : 'MW4 Private Cheat'}
+              {isFeaturesCompetitive ? 'Continue to MW4 checkout' : 'MW4 Private Cheat'}
               <Icon name="arrowRight" size={17} />
             </Button>
             <Button as="a" href={ROUTES.products} variant="outline">
-              {isFeaturesCompetitive ? 'Browse cheat catalog' : 'View products'}
+              {isFeaturesCompetitive ? 'Product lineup hub' : 'MW4 product catalog'}
             </Button>
             <Button as="a" href={ROUTES.blog} variant="outline">
-              {isFeaturesCompetitive ? 'See other MW4 guides' : 'More articles'}
+              {isFeaturesCompetitive ? 'Browse guide archive' : 'Back to blog index'}
               <Icon name="arrowRight" size={17} />
             </Button>
           </nav>

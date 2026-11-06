@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/sync-blog-hero-images.mjs && node scripts/optimize-images.mjs && node scripts/generate-brand-icons.mjs && astro build && node scripts/prune-dist-images.mjs && node scripts/finalize-sitemap.mjs && node scripts/indexnow.mjs",
+    "build": "node scripts/sync-blog-hero-images.mjs && node scripts/optimize-images.mjs && node scripts/generate-brand-icons.mjs && astro build && node scripts/prune-dist-images.mjs && node scripts/finalize-sitemap.mjs && node scripts/patch-html-canonical-pages-preview.mjs && node scripts/indexnow.mjs",
     "sync:blog-images": "node scripts/sync-blog-hero-images.mjs",
     "brand-icons": "node scripts/generate-brand-icons.mjs",
     "preview": "astro preview --host 0.0.0.0",

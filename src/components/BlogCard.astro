@@ -31,7 +31,8 @@ const href = blogPostPath(post.slug);
 const timestamp = getBlogPostTimestamp(post.date);
 const readMinutes = getBlogReadMinutes(post.readTime);
 const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
-const readCta = layout === 'featured' ? 'Open article' : 'Open post';
+const readCta =
+  layout === 'featured' ? 'Read full featured guide' : `Read guide: ${post.title}`;
 ---
 
 <Card
@@ -59,7 +60,7 @@ const readCta = layout === 'featured' ? 'Open article' : 'Open post';
   >
     <ResponsiveImage
       src={post.image}
-      alt=""
+      alt={`Hero image for ${post.title}`}
       width={isFeatured ? 960 : 640}
       height={isFeatured ? 540 : 360}
       widths={isFeatured ? undefined : CARD_IMAGE_WIDTHS}

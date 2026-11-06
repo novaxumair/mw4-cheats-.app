@@ -1,6 +1,6 @@
 /**
  * On Cloudflare Pages preview, `CF_PAGES_URL` is the deployment origin (e.g. *.pages.dev).
- * Rewrite canonical, hreflang, and og:url from mw4cheat.app to that origin so crawls self-reference.
+ * Rewrite canonical, hreflang, and og:url from mw4cheats.app to that origin so crawls self-reference.
  * Production builds omit this env — script is a no-op.
  */
 import fs from 'node:fs';
@@ -20,7 +20,7 @@ try {
   process.exit(0);
 }
 
-const APEX = 'https://mw4cheat.app';
+const APEX = 'https://mw4cheats.app';
 if (deployOrigin === APEX) {
   console.log('patch-html-canonical-pages-preview: skipped (same as apex).');
   process.exit(0);

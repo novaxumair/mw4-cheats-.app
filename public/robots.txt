@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mw4cheat.app/sitemap.xml
+Sitemap: https://mw4cheats.app/sitemap.xml
 
-# RSS: https://mw4cheat.app/rss.xml
+# RSS: https://mw4cheats.app/rss.xml

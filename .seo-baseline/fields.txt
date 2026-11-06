@@ -1,42 +1,42 @@
 === index.html ===
 MW4 Cheats for PC | Private Suite, Spoofer &amp; Guides
-Buy MW4 cheats for PC: private suite, HWID spoofer, account tools, and skin changer—with Modern Warfare 4 guides at mw4cheat.app.
-https://mw4cheat.app/
+Buy MW4 cheats for PC: private suite, HWID spoofer, account tools, and skin changer—with Modern Warfare 4 guides at mw4cheats.app.
+https://mw4cheats.app/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === products/mw4-cheats/index.html ===
 MW4 Cheat Products | Suite, Spoofer, Accounts, Skins
 Modern Warfare 4 products: private cheat suite, HWID spoofer, game account workspace, and skin changer—each with secure checkout.
-https://mw4cheat.app/products/mw4-cheats/
+https://mw4cheats.app/products/mw4-cheats/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === blog/index.html ===
 MW4 Cheat Guides | Features, Setup &amp; Patch Safety
 Undetected MW4 cheats context, ESP and aim guides, HWID notes, and patch-day checklists—without stealing keywords from product URLs.
-https://mw4cheat.app/blog/
+https://mw4cheats.app/blog/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === faq/index.html ===
 FAQ | MW4 Cheats, Products &amp; Checkout
-Answers on MW4 cheat modules, enforcement risk, four products, loader status, and checkout paths at mw4cheat.app.
-https://mw4cheat.app/faq/
+Answers on MW4 cheat modules, enforcement risk, four products, loader status, and checkout paths at mw4cheats.app.
+https://mw4cheats.app/faq/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === support/index.html ===
 Support | MW4 Cheat
 Get help with checkout, loader errors, and portal access for MW4 products.
-https://mw4cheat.app/support/
+https://mw4cheats.app/support/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === 404.html ===
 Page not found | MW4 Cheat
-The page you requested could not be found on mw4cheat.app.
-https://mw4cheat.app/404/
+The page you requested could not be found on mw4cheats.app.
+https://mw4cheats.app/404/
 noindex, nofollow
 0
 1

@@ -38,7 +38,7 @@ Blog posts in `src/data/blog/posts.ts` each target a distinct slug (35 articles)
 | --------------- | ---------- | -------- | --------- | ----------------- | --------------- | -------------- |
 | r/mw4 | reddit.com/r/mw4 (community) | Community | Medium | Comment or post linking *patch safety* guide | `/blog/` or specific post | “RICOCHET patch checklist” |
 | Tactical FPS YouTube channel | (search: MW4 PC setup) | Video | High if aligned | Offer guest script on loader/OS prep | `/faq/` or blog loader post | “PC setup before third-party tools” |
-| Indie gaming blog | contact form | Editorial | Medium | Guest post on **honest** risk/disclosure | `/about/` | “What mw4cheat.app publishes” |
+| Indie gaming blog | contact form | Editorial | Medium | Guest post on **honest** risk/disclosure | `/about/` | “What mw4cheats.app publishes” |
 | PC hardware forum | GPU/driver threads | Tech | Medium | Sidebar or signature after contributing | `/blog/` hardware post | “Driver stability for MW4” |
 | Discord / community (non-spam) | invite-only servers | Community | Variable | Share *one* deep guide if rules allow | Specific blog slug | Natural mention |
 
@@ -61,4 +61,4 @@ Use after one week with no reply:
 
 ---
 
-*Last updated: deployment handoff for mw4cheat.app.*
+*Last updated: deployment handoff for mw4cheats.app.*

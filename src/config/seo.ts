@@ -2,7 +2,7 @@ import { t } from '../i18n';
 import { SITE_DOMAIN as INDEXNOW_HOST_NAME, siteAssetUrl } from './site';
 import { getPageSeoEntry } from './pageSeo';
 
-/** Always `https://mw4cheat.app` (canonical, OG, hreflang, sitemap). */
+/** Always `https://mw4cheats.app` (canonical, OG, hreflang, sitemap). */
 export const SITE_ORIGIN = `https://${t.site.domain}`;
 
 export const DEFAULT_OG_IMAGE = '/images/mw4/asset-01.webp';

@@ -1,4 +1,4 @@
-# QA report — MW4 Cheat (mw4cheat.app)
+# QA report — MW4 Cheat (mw4cheats.app)
 
 **Build:** Run `npm install` then `npm run build` (Node **≥ 22.12** per `package.json`). Build runs `optimize-images`, Astro build, sitemap finalize, and IndexNow hook.
 
@@ -41,10 +41,10 @@ This checklist validates the implementation against the MW4 site plan.
 
 ## 7. Technical SEO
 
-- Canonicals via `canonicalUrl` in `src/config/seo.ts` — always `https://mw4cheat.app` (including Pages preview builds).
+- Canonicals via `canonicalUrl` in `src/config/seo.ts` — always `https://mw4cheats.app` (including Pages preview builds).
 - `PAGE_SEO` overrides in `src/config/pageSeo.ts`.  
 - Sitemap: `@astrojs/sitemap` + `scripts/finalize-sitemap.mjs`.  
-- `robots.txt` host: mw4cheat.app.
+- `robots.txt` host: mw4cheats.app.
 
 ## 8. Core Web Vitals (notes)
 
@@ -61,7 +61,7 @@ This checklist validates the implementation against the MW4 site plan.
 
 ## 11. hreflang
 
-- Single locale **en**; `BaseLayout` emits `en` + `x-default` alternates with absolute `https://mw4cheat.app` URLs.
+- Single locale **en**; `BaseLayout` emits `en` + `x-default` alternates with absolute `https://mw4cheats.app` URLs.
 
 ## 12. Structured data
 
@@ -103,4 +103,4 @@ Legacy: `/go/game-accounts/` → `/go/ugc/`. Product slugs map via `checkoutForS
 
 ---
 
-**Sign-off:** After `npm run build` succeeds with zero errors, spot-check the four `/go/*` URLs in devtools (302/307 to affiliate), open one blog post (FAQ JSON-LD), and confirm `robots.txt` and sitemap URLs use `https://mw4cheat.app`.
+**Sign-off:** After `npm run build` succeeds with zero errors, spot-check the four `/go/*` URLs in devtools (302/307 to affiliate), open one blog post (FAQ JSON-LD), and confirm `robots.txt` and sitemap URLs use `https://mw4cheats.app`.

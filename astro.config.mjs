@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 export default defineConfig({
-  site: 'https://mw4cheat.app',
+  site: 'https://mw4cheats.app',
   trailingSlash: 'always',
   redirects: {
     '/cheats/': '/products/mw4-cheats/',
@@ -25,7 +25,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       /** `public/go/mw4/index.html` is not an Astro page — include URL explicitly. */
-      customPages: ['https://mw4cheat.app/go/mw4/'],
+      customPages: ['https://mw4cheats.app/go/mw4/'],
       filter: (page) =>
         !page.includes('/404') && (!page.includes('/go/') || page.includes('/go/mw4')),
       serialize: sitemapSerialize,

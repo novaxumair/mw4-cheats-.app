@@ -7,10 +7,10 @@ const productBase = PRODUCT_BASE;
 export const en: Translations = {
   site: {
     name: 'MW4 Cheat',
-    domain: 'mw4cheat.app',
+    domain: 'mw4cheats.app',
     title: 'MW4 Cheats for PC | Private Cheat, ESP & Spoofer | MW4 Cheat',
     description:
-      'MW4 cheats for PC at mw4cheat.app: a private cheat with aimbot, ESP, and radar, plus an HWID spoofer, account tools, and a skin changer. See mw4cheat.app.',
+      'MW4 cheats for PC at mw4cheats.app: a private cheat with aimbot, ESP, and radar, plus an HWID spoofer, account tools, and a skin changer. See mw4cheats.app.',
     discord: PRIMARY_CHECKOUT_PATH,
   },
   nav: [
@@ -518,7 +518,7 @@ export const en: Translations = {
     ],
   },
   footer: {
-    tagline: 'MW4 Cheat publishes PC-focused MW4 guides and product pages at mw4cheat.app',
+    tagline: 'MW4 Cheat publishes PC-focused MW4 guides and product pages at mw4cheats.app',
     explore: 'Explore',
     exploreLinks: [
       { href: '/', label: 'Overview', ariaLabel: 'Home', scrollTarget: 'features' },
@@ -537,7 +537,7 @@ export const en: Translations = {
     about: {
       title: 'About MW4 Cheat',
       description:
-        'MW4 Cheat publishes PC-focused Modern Warfare 4 guides and product explainers at mw4cheat.app: cheat modules, spoofer context, account tooling limits, and how we cite patch windows.',
+        'MW4 Cheat publishes PC-focused Modern Warfare 4 guides and product explainers at mw4cheats.app: cheat modules, spoofer context, account tooling limits, and how we cite patch windows.',
       sections: [
         {
           heading: 'Who we are',
@@ -567,13 +567,13 @@ export const en: Translations = {
     },
     privacy: {
       title: 'Privacy Policy',
-      description: 'How MW4 Cheat handles analytics, cookies, and contact data when you use mw4cheat.app.',
+      description: 'How MW4 Cheat handles analytics, cookies, and contact data when you use mw4cheats.app.',
       sections: [
         {
           heading: 'Information we collect',
           paragraphs: [
             'We may collect standard analytics such as page views, device type, browser, and approximate region when analytics is enabled.',
-            'Checkout and delivery occur on external pages—we do not store payment card numbers on mw4cheat.app.',
+            'Checkout and delivery occur on external pages—we do not store payment card numbers on mw4cheats.app.',
           ],
         },
         {
@@ -591,7 +591,7 @@ export const en: Translations = {
           heading: 'Contact',
           paragraphs: [
             'Privacy questions use the same contact path as other legal inquiries on this site.',
-            'We describe categories of data above so you know what the site may see; we do not use it to build advertising profiles on mw4cheat.app.',
+            'We describe categories of data above so you know what the site may see; we do not use it to build advertising profiles on mw4cheats.app.',
             'If you use MW4 cheats or linked tools, we still only process what you send through forms or analytics as stated above—we never pull inventory or gameplay stats from your game client.',
             'You may request a copy or deletion of messages you sent through our help path where retention allows; we respond from the same email thread when possible.',
           ],
@@ -600,18 +600,18 @@ export const en: Translations = {
     },
     terms: {
       title: 'Terms & Conditions',
-      description: 'Purchase and use terms for listings on mw4cheat.app.',
+      description: 'Purchase and use terms for listings on mw4cheats.app.',
       sections: [
         {
           heading: 'Agreement',
           paragraphs: [
-            'By using mw4cheat.app or completing checkout for products linked here, you accept these terms and the Privacy Policy.',
+            'By using mw4cheats.app or completing checkout for products linked here, you accept these terms and the Privacy Policy.',
           ],
         },
         {
           heading: 'Checkout',
           paragraphs: [
-            'Payments and fulfillment run on external checkout domains. mw4cheat.app does not process card data.',
+            'Payments and fulfillment run on external checkout domains. mw4cheats.app does not process card data.',
             'Feature lists describe modules at the time of writing; updates can add, remove, or temporarily disable modules.',
           ],
         },

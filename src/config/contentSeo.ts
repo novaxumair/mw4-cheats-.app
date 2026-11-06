@@ -9,12 +9,12 @@ export const PRODUCT_SEO: Record<string, SerpMeta> = {
   'mw4-private-suite': {
     title: 'MW4 Cheats for PC | Private Cheat Aimbot & ESP | MW4 Cheat',
     description:
-      'MW4 cheats for PC in the private cheat: aimbot, trigger, ESP, 2D radar, loot, and recoil tools. Check the live status label on mw4cheat.app before you load.',
+      'MW4 cheats for PC in the private cheat: aimbot, trigger, ESP, 2D radar, loot, and recoil tools. Check the live status label on mw4cheats.app before you load.',
   },
   'hwid-spoofer': {
     title: 'MW4 HWID Spoofer | PC Hardware Ban Tool | MW4 Cheat',
     description:
-      'MW4 HWID spoofer for a PC hardware ban: restore point, identifier checks, and a cold reboot. It does not restore a banned account. See mw4cheat.app.',
+      'MW4 HWID spoofer for a PC hardware ban: restore point, identifier checks, and a cold reboot. It does not restore a banned account. See mw4cheats.app.',
   },
   'game-accounts': {
     title: 'MW4 Account Unban Help | Ban Recovery Workspace | MW4 Cheat',
@@ -32,7 +32,7 @@ export const BLOG_SEO: Record<string, SerpMeta> = {
   'modern-warfare-4-cheats-explained': {
     title: 'Modern Warfare – Day-One PC Guide 2026 | MW4 Cheat',
     description:
-      'Modern Warfare: What MW4 faces on day one: TPM 2.0, Secure Boot, aimbot, ESP, DMZ loot, and how to read a status label before you queue on mw4cheat.',
+      'Modern Warfare: What MW4 faces on day one: TPM 2.0, Secure Boot, aimbot, ESP, DMZ loot, and how to read a status label before you queue on mw4cheats.app.',
   },
   'best-mw4-cheat-features-competitive': {
     title: 'Features – and the loot layer you should turn off before a',
@@ -77,7 +77,7 @@ export const BLOG_SEO: Record<string, SerpMeta> = {
   'mw4-account-unban-ban-recovery-solutions': {
     title: 'MW4 Account Unban & Ban Recovery for PC | MW4 Cheat',
     description:
-      'An MW4 unban means Activision lifts that login. A new account is not an unban, and nobody should ask for your password to file the ticket. See mw4cheat.app.',
+      'An MW4 unban means Activision lifts that login. A new account is not an unban, and nobody should ask for your password to file the ticket. See mw4cheats.app.',
   },
   'mw4-stream-proof-overlay-content-creator-setup': {
     title: 'MW4 Stream-Proof Overlay | OBS Test Setup | MW4 Cheat',
@@ -97,7 +97,7 @@ export const BLOG_SEO: Record<string, SerpMeta> = {
   'mw4-cheat-feature-comparison': {
     title: 'MW4 Cheat Comparison | Cheat vs Utilities | MW4 Cheat',
     description:
-      'Compare MW4 cheats on mw4cheat.app: the private cheat for aim and ESP, the HWID spoofer, the account workspace, and a local skin changer. Each checkout is.',
+      'Compare MW4 cheats on mw4cheats.app: the private cheat for aim and ESP, the HWID spoofer, the account workspace, and a local skin changer. Each checkout is.',
   },
   'mw4-cheats-pc-installation-loader-guide': {
     title: 'Install MW4 Cheats on PC | Loader Guide | MW4 Cheat',
@@ -127,7 +127,7 @@ export const BLOG_SEO: Record<string, SerpMeta> = {
   'mw4-config-management-6v6-vs-dmz': {
     title: 'MW4 Configs for 6v6 vs DMZ | Two Presets | MW4 Cheat',
     description:
-      'Save two MW4 configs: a quiet 6v6 file with short ESP, and a Hajin file with loot and a longer radar. Do not play 6v6 on the DMZ preset. See mw4cheat.app.',
+      'Save two MW4 configs: a quiet 6v6 file with short ESP, and a Hajin file with loot and a longer radar. Do not play 6v6 on the DMZ preset. See mw4cheats.app.',
   },
   'free-mw4-cheats-vs-premium-private': {
     title: 'Free MW4 Cheats vs Private Builds | Risks | MW4 Cheat',
@@ -137,12 +137,12 @@ export const BLOG_SEO: Record<string, SerpMeta> = {
   'mw4-trainer-safety-loader-integrity': {
     title: 'MW4 Loader Safety | Know the Real File | MW4 Cheat',
     description:
-      'Run the MW4 loader from the portal only. Skip files that disable Secure Boot, ask for your game password, or show up in chat on patch day. See mw4cheat.app.',
+      'Run the MW4 loader from the portal only. Skip files that disable Secure Boot, ask for your game password, or show up in chat on patch day. See mw4cheats.app.',
   },
   'mw4-weapon-meta-attachment-optimization': {
     title: 'MW4 Weapon Meta & Attachments | PC Guide | MW4 Cheat',
     description:
-      'Pick an MW4 gun and attachments for 6v6 and Hajin as if the menu might be off. No recoil does not replace a grip the server still expects. See mw4cheat.app.',
+      'Pick an MW4 gun and attachments for 6v6 and Hajin as if the menu might be off. No recoil does not replace a grip the server still expects. See mw4cheats.app.',
   },
   'mw4-safe-configuration-preset-sharing': {
     title: 'MW4 Preset Sharing | Import Configs Safely | MW4 Cheat',
@@ -167,7 +167,7 @@ export const BLOG_SEO: Record<string, SerpMeta> = {
   'mw4-distance-capping-radar-optimization': {
     title: 'MW4 ESP Distance Cap & Radar Range Guide | MW4 Cheat',
     description:
-      'Cap MW4 ESP distance and radar range so 6v6 stays readable and DMZ still warns you early. Loot should not use the same distance as players. See mw4cheat.app.',
+      'Cap MW4 ESP distance and radar range so 6v6 stays readable and DMZ still warns you early. Loot should not use the same distance as players. See mw4cheats.app.',
   },
   'mw4-advanced-performance-fps-optimization': {
     title: 'MW4 FPS Tips | Overlay & Performance Guide | MW4 Cheat',
@@ -182,17 +182,17 @@ export const BLOG_SEO: Record<string, SerpMeta> = {
   'mw4-map-callouts-tactical-guide': {
     title: 'MW4 Map Callouts | 6v6 and Hajin Guide | MW4 Cheat',
     description:
-      'Call MW4 spots with compass, height, and a landmark your squad can see. Do not call plate counts and distances that only exist on your ESP. See mw4cheat.app.',
+      'Call MW4 spots with compass, height, and a landmark your squad can see. Do not call plate counts and distances that only exist on your ESP. See mw4cheats.app.',
   },
   'mw4-weapon-recoil-attachment-tier-list': {
     title: 'MW4 Recoil Tier List | Attachments to Keep | MW4 Cheat',
     description:
-      'Which MW4 attachments to keep even with no recoil, which guns need less script, and how a full beam looks on a killcam after a patch. See mw4cheat.app.',
+      'Which MW4 attachments to keep even with no recoil, which guns need less script, and how a full beam looks on a killcam after a patch. See mw4cheats.app.',
   },
   'mw4-unlockable-operators-weapon-blueprints-directory': {
     title: 'MW4 Operators & Blueprints | Unlock Guide | MW4 Cheat',
     description:
-      'How MW4 operators and weapon blueprints actually unlock, and what a local skin changer will not show to the rest of the lobby. See mw4cheat.app.',
+      'How MW4 operators and weapon blueprints actually unlock, and what a local skin changer will not show to the rest of the lobby. See mw4cheats.app.',
   },
   'pc-shooter-hwid-ban-prevention-whitepaper': {
     title: 'Hardware Ban Prevention for PC Shooters | MW4 Cheat',
@@ -240,7 +240,7 @@ export const FORUM_SEO: Record<string, SerpMeta> = {
   'what-does-mw4-esp-include': {
     title: 'What MW4 ESP and Wallhack Include | Forum | MW4 Cheat',
     description:
-      'Thread on MW4 ESP versus wallhack chams: dull colors behind cover, snaplines off in 6v6, and a longer distance only on the Hajin preset. See mw4cheat.app.',
+      'Thread on MW4 ESP versus wallhack chams: dull colors behind cover, snaplines off in 6v6, and a longer distance only on the Hajin preset. See mw4cheats.app.',
   },
   'how-to-calibrate-aim-circle': {
     title: 'Calibrate an MW4 Aimbot Circle | Forum | MW4 Cheat',
@@ -250,12 +250,12 @@ export const FORUM_SEO: Record<string, SerpMeta> = {
   'trigger-delay-vs-ping': {
     title: 'MW4 Triggerbot Delay vs Ping | Player Forum | MW4 Cheat',
     description:
-      'Should MW4 trigger delay go up when ping spikes? Players use a hold key, match the aim bone, and keep it off for long vehicle-map shots. See mw4cheat.app.',
+      'Should MW4 trigger delay go up when ping spikes? Players use a hold key, match the aim bone, and keep it off for long vehicle-map shots. See mw4cheats.app.',
   },
   'radar-zoom-tips': {
     title: 'MW4 Radar Hack Zoom Tips for 6v6 and DMZ Maps | MW4 Cheat',
     description:
-      'How far to zoom an MW4 radar hack. Tight for 6v6, longer for DMZ, and no exact plate callouts if the rest of the squad cannot see the dots. See mw4cheat.app.',
+      'How far to zoom an MW4 radar hack. Tight for 6v6, longer for DMZ, and no exact plate callouts if the rest of the squad cannot see the dots. See mw4cheats.app.',
   },
   'loot-layer-when-to-enable': {
     title: 'When to Enable MW4 Loot ESP | Player Forum | MW4 Cheat',
@@ -265,7 +265,7 @@ export const FORUM_SEO: Record<string, SerpMeta> = {
   'stream-proof-test': {
     title: 'Test MW4 Stream-Proof in OBS | Player Forum | MW4 Cheat',
     description:
-      'How to test an MW4 stream-proof overlay without going live. Use game capture, watch a local file, and record again after the next patch. See mw4cheat.app.',
+      'How to test an MW4 stream-proof overlay without going live. Use game capture, watch a local file, and record again after the next patch. See mw4cheats.app.',
   },
   'hwid-before-or-after-install': {
     title: 'MW4 HWID Spoofer Before Reinstall | Forum | MW4 Cheat',
@@ -275,12 +275,12 @@ export const FORUM_SEO: Record<string, SerpMeta> = {
   'account-workspace-scope': {
     title: 'MW4 Account Unban Workspace | Player Forum | MW4 Cheat',
     description:
-      'What MW4 account recovery can file, and why a DM asking for your password is not an unban. Hardware blocks belong on a different product. See mw4cheat.app.',
+      'What MW4 account recovery can file, and why a DM asking for your password is not an unban. Hardware blocks belong on a different product. See mw4cheats.app.',
   },
   'dma-vs-software': {
     title: 'DMA Cards vs MW4 Software Cheats | Forum | MW4 Cheat',
     description:
-      'Does mw4cheat.app recommend a DMA card? Players separate two-PC hardware from the software cheat. Secure Boot still has to stay on to join a match.',
+      'Does mw4cheats.app recommend a DMA card? Players separate two-PC hardware from the software cheat. Secure Boot still has to stay on to join a match.',
   },
 };
 

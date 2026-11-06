@@ -132,89 +132,94 @@ const mw4SystemRequirements: SystemRequirement[] = [
 type GalleryKey = keyof typeof galleryRaw;
 
 const gameplay = siteAssetUrl('/images/mw4');
-const spooferAssets = siteAssetUrl('/images/products/hwid-spoofer');
-const ugcAssets = siteAssetUrl('/images/products/game-accounts');
-const skinChangerAssets = siteAssetUrl('/images/products/skin-changer');
 
 const galleryRaw = {
   gpMw4Esp: {
     src: `${gameplay}/asset-01.webp`,
-    alt: 'Modern Warfare 4 cheat interface screenshot on PC',
-    caption: 'Player ESP',
-    captionDesc: 'Readable boxes and intel for 6v6 fights without flooding the screen.',
+    alt: 'Modern Warfare DMZ-style gameplay on PC',
+    caption: 'Field intel',
+    captionDesc: 'Large-map session reference for overlay context.',
   },
   gpMw4Aim: {
-    src: `${gameplay}/asset-08.webp`,
-    alt: 'MW4 cheat menu and safety settings on desktop',
-    caption: 'Aim tuning',
-    captionDesc: 'Configurable aim circle and smooth acquisition—tune before ranked play.',
+    src: `${gameplay}/asset-02.webp`,
+    alt: 'MW4 tactical HUD and weapon view on PC',
+    caption: 'Aim line',
+    captionDesc: 'Down-sights reference frame for tuning discussion.',
   },
   gpMw4Radar: {
     src: `${gameplay}/asset-03.webp`,
     alt: 'Modern Warfare gameplay screenshot',
-    caption: '2D radar',
-    captionDesc: 'Zoom and range controls so callouts stay legible.',
+    caption: 'Map flow',
+    captionDesc: 'Compass and objective layout in a live match.',
   },
   gpMw4Skin: {
-    src: `${gameplay}/asset-05.webp`,
-    alt: 'Call of Duty operator and loadout art',
-    caption: 'Cosmetic preview',
-    captionDesc: 'Preview skins and loadouts locally before applying.',
+    src: `${gameplay}/asset-04.webp`,
+    alt: 'Operator loadout and environment shot',
+    caption: 'Loadout moment',
+    captionDesc: 'Cosmetic and gear context for preview tooling.',
   },
   gpMw4Loot: {
-    src: `${gameplay}/asset-06.webp`,
-    alt: 'Call of Duty operator artwork',
-    caption: 'Loot & DMZ layer',
-    captionDesc: 'Contract and extract context when the mode calls for it.',
+    src: `${gameplay}/asset-05.webp`,
+    alt: 'DMZ-style session with objectives',
+    caption: 'Extraction pace',
+    captionDesc: 'Contract and loot-layer reference when modes demand it.',
   },
   gpMw4Hwid: {
-    src: `${gameplay}/asset-07.webp`,
-    alt: 'Call of Duty operator scene',
-    caption: 'Hardware workflow',
-    captionDesc: 'Checklist-driven spoof and verify steps from the portal.',
+    src: `${gameplay}/asset-06.webp`,
+    alt: 'Outdoor combat gameplay frame',
+    caption: 'Hardware session',
+    captionDesc: 'Staged workflow reference—not a live portal screen.',
   },
   gpMw4Accounts: {
-    src: `${gameplay}/asset-02.webp`,
-    alt: 'Modern Warfare gameplay moment',
-    caption: 'Account status',
-    captionDesc: 'Restriction type, timelines, and next actions in one view.',
+    src: `${gameplay}/asset-07.webp`,
+    alt: 'Squad and HUD gameplay frame',
+    caption: 'Squad state',
+    captionDesc: 'Restriction and appeal context for account tools.',
   },
-  /** HWID spoofer only — dedicated assets under /images/products/hwid-spoofer/ */
+  /** HWID spoofer gallery uses same gameplay set as mw4/ (replaces legacy PNG art) */
   gpSpooferPhoenixBanner: {
-    src: `${spooferAssets}/phoenix-banner.png`,
-    alt: 'HWID spoofer product banner with dark background and phoenix artwork',
-    caption: 'Spoofer identity',
-    captionDesc: 'Visual identity for the hardware recovery build—swap previews only, not in-game footage.',
+    src: `${gameplay}/asset-08.webp`,
+    alt: 'PC gameplay reference for HWID recovery product',
+    caption: 'Recovery context',
+    captionDesc: 'Hardware workflow framing—verify steps before launch.',
   },
   gpSpooferHardwareIcon: {
-    src: `${spooferAssets}/hardware-icon.png`,
-    alt: 'Processor and gear line icon representing PC hardware tooling',
-    caption: 'Hardware scope',
-    captionDesc: 'Disk and network identifiers the workflow targets before you verify and reboot.',
+    src: `${gameplay}/asset-09.webp`,
+    alt: 'Gameplay frame for identifier tooling',
+    caption: 'PC footprint',
+    captionDesc: 'Disk and network scope the guide walks through.',
   },
   gpSpooferCircuitChip: {
-    src: `${spooferAssets}/circuit-chip.png`,
-    alt: 'Stylized circuit board with a central chip for hardware ID recovery',
-    caption: 'Identity layers',
-    captionDesc: 'Motherboard-level context for why spoofing is staged, verified, and cold-rebooted.',
+    src: `${gameplay}/asset-10.webp`,
+    alt: 'Tactical gameplay reference',
+    caption: 'Verify pass',
+    captionDesc: 'Cold reboot and diff checks after changes.',
   },
-  /** Game accounts / UGC workspace only */
   gpUgcWorkflowIcon: {
-    src: `${ugcAssets}/ugc-workflow-icon.png`,
-    alt: 'Gear and clock icon representing structured account recovery steps',
-    caption: 'Fast-track workflow',
-    captionDesc:
-      'Appeal-ready timelines, status checks, and recovery steps the workspace walks through—preview art, not a live portal screen.',
+    src: `${gameplay}/asset-11.webp`,
+    alt: 'Gameplay HUD for account workspace context',
+    caption: 'Case flow',
+    captionDesc: 'Structured steps for restriction documentation.',
   },
-  /** Skin changer only */
   gpSkinChangerCrest: {
-    src: `${skinChangerAssets}/skin-changer-crest.png`,
-    alt: 'Metallic crest with Skin Changer lettering and weapon silhouettes',
-    caption: 'Cosmetic toolkit',
-    captionDesc:
-      'Hero art for local operator and weapon skin preview—marketing graphic, not an in-game lobby capture.',
+    src: `${gameplay}/asset-12.webp`,
+    alt: 'In-game cosmetic and weapon preview context',
+    caption: 'Local preview',
+    captionDesc: 'Operator and camo discussion for skin tooling.',
   },
 };
+
+/** One slide per supplied gameplay still (public/images/mw4/asset-*.webp) for the home hero carousel */
+const gameplayHeroStillCount = 27;
+const heroGameplayStills: ProductSlide[] = Array.from({ length: gameplayHeroStillCount }, (_, i) => {
+  const n = String(i + 1).padStart(2, '0');
+  return {
+    src: `${gameplay}/asset-${n}.webp`,
+    alt: `Modern Warfare PC gameplay reference ${n}`,
+    caption: `Session ${n}`,
+    captionDesc: 'First-person gameplay frame for product and guide context.',
+  };
+});
 
 function slide(...keys: GalleryKey[]): ProductSlide[] {
   return keys.map((k) => {
@@ -465,15 +470,7 @@ export function getAllCheatSlugs() {
   return cheatPages.map((p) => p.slug);
 }
 
-export const heroSlides = slide(
-  'gpMw4Esp',
-  'gpMw4Aim',
-  'gpMw4Radar',
-  'gpMw4Skin',
-  'gpMw4Loot',
-  'gpMw4Hwid',
-  'gpMw4Accounts',
-);
+export const heroSlides = heroGameplayStills;
 
 export const productHub = {
   path: productBase,

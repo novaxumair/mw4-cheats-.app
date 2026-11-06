@@ -2,7 +2,7 @@
  * Primary site origin (no path). Used by finalize-sitemap and indexnow postbuild scripts.
  */
 
-export const DEFAULT_SITE_ORIGIN = 'https://mw4cheat.app';
+export const DEFAULT_SITE_ORIGIN = 'https://mw4cheats.app';
 
 /**
  * @param {string | undefined} input

@@ -33,7 +33,7 @@ npm run build
 1. **Deploy command** (build must run first): **`npm run deploy`** — runs **`wrangler pages deploy dist`** (recommended for Cloudflare Pages).
 2. **`npx wrangler deploy`** after **`npm run build`**: the repo includes **`[assets] directory = "./dist"`** in `wrangler.toml` so this no longer errors with “Missing entry-point”. You may still see a warning to prefer **`wrangler pages deploy`**; that is expected for a Pages-linked project.
 3. Connect the repo or run **`npm run deploy`** from the project root after **`npm run build`** (see `wrangler.toml` **`name`** — use the same value as your Pages project name in the dashboard, or pass **`--project-name`** if it differs).
-4. **Custom domain**: point `mw4cheat.app` (and optional `www`) at Cloudflare; enable **Always Use HTTPS** and redirect **www → apex** (also covered by `public/_redirects`).
+4. **Custom domain**: point `mw4cheat.app` (and optional `www`) at Cloudflare; enable **Always Use HTTPS**. For **`www` → apex**, use **Bulk Redirects** or a **Page Rule** in the dashboard — **`_redirects` cannot use absolute URLs** (Cloudflare error 100324).
 5. **Headers / redirects**: `public/_headers` and `public/_redirects` are copied into **`dist/`** at build time and applied by Cloudflare static hosting.
 
 IndexNow runs only if **`INDEXNOW_KEY`** is set during build (`scripts/indexnow.mjs`).

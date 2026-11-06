@@ -2,8 +2,8 @@
 # https://developers.cloudflare.com/pages/configuration/redirects/
 # Order matters: first match wins.
 
-# Apex canonical host (mirror of scripts/serve.mjs)
-https://www.mw4cheat.app/*  https://mw4cheat.app/:splat  301
+# www → apex: Cloudflare _redirects only allows relative paths (no https://…).
+# Configure that redirect in the dashboard: Bulk Redirects, Page Rules, or DNS + Always HTTPS.
 
 # Legacy / cheats → current IA
 /cheats  /products/mw4-cheats/  301

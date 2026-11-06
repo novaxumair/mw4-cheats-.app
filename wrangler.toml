@@ -6,7 +6,8 @@
 #   the dashboard so you do not deploy a separate Worker.
 # - **`pages_build_output_dir`**: hints/tools that this folder is the Pages build output.
 
-name = "mw4cheat-app"
+# Must match the Workers/Pages project slug in Cloudflare (CI derives e.g. mw4-cheat--app from the repo name).
+name = "mw4-cheat--app"
 compatibility_date = "2025-11-06"
 pages_build_output_dir = "dist"
 

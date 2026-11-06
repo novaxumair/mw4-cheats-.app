@@ -1,5 +1,8 @@
-# Cloudflare Pages / Workers — static deploy from ./dist after `npm run build`
+# Cloudflare Pages — static assets live in ./dist after `npm run build`.
 # https://developers.cloudflare.com/workers/wrangler/configuration/
+#
+# Do NOT use `wrangler deploy` for this repo (that targets Workers and needs main / assets).
+# CI / local: `npm run deploy` → `wrangler pages deploy dist`
 
 name = "mw4cheat-app"
 compatibility_date = "2025-11-06"

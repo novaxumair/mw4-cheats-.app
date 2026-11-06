@@ -28,11 +28,12 @@ npm run build
 
 `/go/` is excluded from the sitemap (see `astro.config.mjs` + `src/config/sitemap.ts`) and disallowed in `robots.txt`.
 
-## Cloudflare Workers / Pages
+## Cloudflare Pages
 
-1. Connect the repo or run **`wrangler pages deploy dist`** from the project root (see `wrangler.toml`).
-2. **Custom domain**: point `mw4cheat.app` (and optional `www`) at Cloudflare; enable **Always Use HTTPS** and redirect **www → apex** (also covered by `public/_redirects`).
-3. **Headers / redirects**: `public/_headers` and `public/_redirects` are copied into **`dist/`** at build time and applied by Cloudflare static hosting.
+1. **Deploy command** (build must run first): **`npm run deploy`** — runs **`wrangler pages deploy dist`**. In the Cloudflare dashboard, set the deploy step to that instead of **`wrangler deploy`** (Workers), which will fail for this static site.
+2. Connect the repo or run **`npm run deploy`** from the project root after **`npm run build`** (see `wrangler.toml` **`name`** — use the same value as your Pages project name in the dashboard, or pass **`--project-name`** if it differs).
+3. **Custom domain**: point `mw4cheat.app` (and optional `www`) at Cloudflare; enable **Always Use HTTPS** and redirect **www → apex** (also covered by `public/_redirects`).
+4. **Headers / redirects**: `public/_headers` and `public/_redirects` are copied into **`dist/`** at build time and applied by Cloudflare static hosting.
 
 IndexNow runs only if **`INDEXNOW_KEY`** is set during build (`scripts/indexnow.mjs`).
 

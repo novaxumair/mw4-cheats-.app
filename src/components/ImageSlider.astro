@@ -39,6 +39,7 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
   ]}
   id={id}
   data-hero-embla-wrap={isHero || undefined}
+  data-defer-embla-init={isHero ? (deferEmblaInit ? 'true' : 'false') : undefined}
 >
   <Carousel
     autoInit={!isHero}
@@ -115,8 +116,17 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
 </div>
 
 {isHero && (
-  <script define:vars={{ deferEmblaInit }}>
-    import { setupHeroEmbla } from '../scripts/hero-embla.ts';
-    setupHeroEmbla(deferEmblaInit);
+  <script>
+    /**
+     * Do not use `define:vars` here — with it, Astro leaves raw `import` in HTML so the bundle never loads in production.
+     * This script is immediately after the wrapper div; read defer from `data-defer-embla-init` on that node.
+     */
+    import { setupHeroEmbla } from '@/scripts/hero-embla';
+    const wrap = document.currentScript?.previousElementSibling;
+    const deferInit =
+      wrap instanceof HTMLElement && wrap.hasAttribute('data-defer-embla-init')
+        ? wrap.getAttribute('data-defer-embla-init') === 'true'
+        : false;
+    setupHeroEmbla(deferInit);
   </script>
 )}

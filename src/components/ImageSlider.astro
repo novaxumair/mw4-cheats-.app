@@ -46,9 +46,10 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
     opts={{ loop: images.length > 1, align: 'start' }}
     class="w-full"
   >
-    <CarouselContent>
+    <!-- Hero: drop Starwind's -ml-4 / pl-4 slide gutters — they mis-align Embla with align:start and clip the first slide. -->
+    <CarouselContent class={isHero ? '!ml-0' : undefined}>
       {images.map((img, i) => (
-        <CarouselItem class="basis-full">
+        <CarouselItem class:list={['basis-full', isHero && '!pl-0']}>
           <figure
             class:list={[
               isHero ? 'aspect-[16/10] overflow-hidden rounded-lg bg-muted/30' : 'overflow-hidden rounded-lg',

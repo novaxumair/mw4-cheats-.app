@@ -593,6 +593,7 @@ export const en: Translations = {
             'Privacy questions use the same contact path as other legal inquiries on this site.',
             'We describe categories of data above so you know what the site may see; we do not use it to build advertising profiles on mw4cheat.app.',
             'If you use MW4 cheats or linked tools, we still only process what you send through forms or analytics as stated above—we never pull inventory or gameplay stats from your game client.',
+            'You may request a copy or deletion of messages you sent through our help path where retention allows; we respond from the same email thread when possible.',
           ],
         },
       ],

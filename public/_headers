@@ -37,6 +37,9 @@
   Cache-Control: public, max-age=86400
   Content-Type: application/xml; charset=utf-8
 
+/*.xml
+  Content-Type: application/xml; charset=utf-8
+
 /robots.txt
   Cache-Control: public, max-age=86400
 

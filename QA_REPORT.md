@@ -41,7 +41,7 @@ This checklist validates the implementation against the MW4 site plan.
 
 ## 7. Technical SEO
 
-- Canonicals via `canonicalUrl` in `src/config/seo.ts` (always `https://mw4cheat.app`). Previews on workers.dev still declare the apex as canonical.
+- Canonicals via `canonicalUrl` in `src/config/seo.ts`. **Pages Preview (workers):** set `PUBLIC_SITE_ORIGIN=https://mw4-cheat--app.novaxumair.workers.dev` so canonical, OG `og:url`, hreflang, and sitemap `<loc>` match the preview host. **Production:** omit env → `https://mw4cheat.app`.
 - `PAGE_SEO` overrides in `src/config/pageSeo.ts`.  
 - Sitemap: `@astrojs/sitemap` + `scripts/finalize-sitemap.mjs`.  
 - `robots.txt` host: mw4cheat.app.
@@ -61,7 +61,7 @@ This checklist validates the implementation against the MW4 site plan.
 
 ## 11. hreflang
 
-- Single locale **en**; `BaseLayout` emits `en` + `x-default` alternates with absolute `https://mw4cheat.app` URLs.
+- Single locale **en**; `BaseLayout` emits `en` + `x-default` alternates with absolute URLs from `SITE_ORIGIN` (preview or production).
 
 ## 12. Structured data
 

@@ -32,7 +32,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/forum/': {
     title: 'Forum – Players answer each other on ESP | MW4 Cheat',
     description:
-      'MW4 cheats forum on mw4cheat.app: players answer on ESP, aim, radar, bans, and patch day; moderators fix bad advice.',
+      'MW4 cheats forum on mw4cheat.app: players answer on ESP, aim, radar, bans, and patch day; moderators fix bad advice. Short forum threads stay practical.',
   },
   '/faq/': {
     title: 'MW4 Cheats FAQ | PC Setup, Bans & Products | Cheat',

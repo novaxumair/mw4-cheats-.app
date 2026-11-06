@@ -131,14 +131,31 @@ const statusBadgeIcon = (text: string): IconName => {
       }
     </ul>
   </CardContent>
-  <CardFooter class:list={['flex flex-col sm:flex-row', isHorizontal ? 'gap-3 pt-1 sm:pt-2' : 'gap-2', isHorizontal && 'mt-2 border-t-0 sm:mt-1']}>
-    <Button as="a" href={buyUrl} variant="primary" size={isHorizontal ? 'lg' : 'sm'} class="w-full sm:flex-1">
+  <CardFooter
+    class:list={[
+      /** Vertical cards sit in md:grid-cols-3 — keep stacked so long CTAs wrap instead of clipping. */
+      isHorizontal ? 'flex flex-col sm:flex-row gap-3 pt-1 sm:pt-2 mt-2 border-t-0 sm:mt-1' : 'flex flex-col gap-2',
+    ]}
+  >
+    <Button
+      as="a"
+      href={buyUrl}
+      variant="primary"
+      size={isHorizontal ? 'lg' : 'sm'}
+      class:list={[isHorizontal ? 'w-full sm:flex-1' : 'w-full min-w-0 whitespace-normal text-center leading-snug', 'gap-1.5']}
+    >
       {buyLabel}
-      <Icon name="arrowRight" size={17} />
+      <Icon name="arrowRight" size={17} class="shrink-0" />
     </Button>
-    <Button as="a" href={href} variant="outline" size={isHorizontal ? 'lg' : 'sm'} class="w-full sm:flex-1">
+    <Button
+      as="a"
+      href={href}
+      variant="outline"
+      size={isHorizontal ? 'lg' : 'sm'}
+      class:list={[isHorizontal ? 'w-full sm:flex-1' : 'w-full min-w-0 whitespace-normal text-center leading-snug', 'gap-1.5']}
+    >
       {viewLabel}
-      <Icon name="arrowRight" size={17} />
+      <Icon name="arrowRight" size={17} class="shrink-0" />
     </Button>
   </CardFooter>
 </Card>

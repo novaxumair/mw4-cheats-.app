@@ -15,8 +15,11 @@ interface Props {
 
 const { titleLine1, titleLine2 } = Astro.props as Props;
 const h = t.hero;
+const passedLine1 = 'titleLine1' in Astro.props;
+const passedLine2 = 'titleLine2' in Astro.props;
 const line1 = titleLine1 ?? h.titleLine1;
-const line2 = titleLine2 ?? h.titleLine2;
+/** If only `titleLine1` is overridden, drop the purple second line (single-line hero). */
+const line2 = passedLine2 ? (titleLine2 ?? '') : passedLine1 ? '' : h.titleLine2;
 
 const heroMarqueePills = [
   ...heroStatusPills,
@@ -41,7 +44,7 @@ const heroMarqueePills = [
 
         <h1 id="hero-title" class="text-4xl font-bold uppercase leading-tight md:text-5xl">
           <span class="block text-foreground">{line1}</span>
-          <span class="block text-primary">{line2}</span>
+          {line2 ? <span class="block text-primary">{line2}</span> : null}
         </h1>
 
         <p class="max-w-xl text-sm leading-relaxed text-neutral-500 dark:text-neutral-400 md:text-base">

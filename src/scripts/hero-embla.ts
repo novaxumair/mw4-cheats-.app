@@ -71,6 +71,19 @@ function bindHeroDots(wrapper: HTMLElement, api: EmblaApi, autoplay: AutoplayPlu
   setActive();
 }
 
+async function destroyHeroCarouselsInDocument() {
+  const nodes = [...document.querySelectorAll<HTMLElement>('[data-hero-embla]')].filter(
+    (node) => node.dataset.heroEmblaReady === 'true',
+  );
+  if (!nodes.length) return;
+
+  const { createCarousel } = await import('@starwind-ui/runtime/carousel');
+  for (const root of nodes) {
+    createCarousel(root).destroy();
+    delete root.dataset.heroEmblaReady;
+  }
+}
+
 /** Embla measures slides on init; hidden (lg:block) roots often have width 0 until layout resolves. */
 function attachReinitWhenSized(carouselRoot: HTMLElement, instance: CarouselInstance) {
   const viewport = carouselRoot.querySelector<HTMLElement>('[data-sw-carousel-viewport]');
@@ -93,7 +106,14 @@ function attachReinitWhenSized(carouselRoot: HTMLElement, instance: CarouselInst
   ro.observe(viewport);
 }
 
+function heroCarouselWrapperVisible(wrapper: HTMLElement): boolean {
+  /** `hidden lg:block` → no layout boxes on narrow viewports */
+  return wrapper.getClientRects().length > 0;
+}
+
 async function initHeroCarousels(root: ParentNode = document) {
+  if (typeof window !== 'undefined' && !window.matchMedia(DESKTOP_MQ).matches) return;
+
   const nodes = [...root.querySelectorAll<HTMLElement>('[data-hero-embla]')].filter(
     (node) => node.dataset.heroEmblaReady !== 'true',
   );
@@ -105,10 +125,11 @@ async function initHeroCarousels(root: ParentNode = document) {
   ]);
 
   nodes.forEach((carouselRoot) => {
-    carouselRoot.dataset.heroEmblaReady = 'true';
-
     const wrapper = carouselRoot.closest('[data-hero-embla-wrap]');
     if (!wrapper) return;
+    if (!heroCarouselWrapperVisible(wrapper as HTMLElement)) return;
+
+    carouselRoot.dataset.heroEmblaReady = 'true';
 
     const autoplay = Autoplay({
       delay: HERO_AUTOPLAY_MS,
@@ -164,7 +185,12 @@ export function setupHeroEmbla(deferInit = false) {
 
   schedule(run);
 
-  window.matchMedia(DESKTOP_MQ).addEventListener('change', () => schedule(run));
+  window.matchMedia(DESKTOP_MQ).addEventListener('change', (event) => {
+    if (!event.matches) {
+      void destroyHeroCarouselsInDocument();
+    }
+    schedule(run);
+  });
 
   document.addEventListener('astro:page-load', () => schedule(run));
 }

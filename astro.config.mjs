@@ -2,12 +2,9 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
-import { normalizeSiteOrigin } from './src/config/siteOrigin.ts';
-
-const siteOrigin = normalizeSiteOrigin(process.env.PUBLIC_SITE_ORIGIN || process.env.SITE_ORIGIN);
 
 export default defineConfig({
-  site: siteOrigin,
+  site: 'https://mw4cheat.app',
   trailingSlash: 'always',
   redirects: {
     '/cheats/': '/products/mw4-cheats/',
@@ -28,7 +25,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       /** `public/go/mw4/index.html` is not an Astro page — include URL explicitly. */
-      customPages: [`${siteOrigin}/go/mw4/`],
+      customPages: ['https://mw4cheat.app/go/mw4/'],
       filter: (page) =>
         !page.includes('/404') && (!page.includes('/go/') || page.includes('/go/mw4')),
       serialize: sitemapSerialize,

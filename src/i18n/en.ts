@@ -553,8 +553,10 @@ export const en: Translations = {
           ],
         },
         {
-          heading: 'Support',
-          paragraphs: ['Questions go through the Support page with your order email and system details.'],
+          heading: 'Help',
+          paragraphs: [
+            'Questions go through the help page with your order email and system details—the same workflow as the Support section in the site footer.',
+          ],
         },
       ],
     },
@@ -572,7 +574,7 @@ export const en: Translations = {
         {
           heading: 'How we use data',
           paragraphs: [
-            'Analytics helps improve guides and fix broken links. Support tickets retain the email and message you send until the issue is resolved.',
+            'Analytics helps improve guides and fix broken links. Help-desk messages retain the email and text you send until the issue is resolved.',
           ],
         },
         {
@@ -581,7 +583,10 @@ export const en: Translations = {
         },
         {
           heading: 'Contact',
-          paragraphs: ['Privacy questions go through the Support page alongside other legal inquiries.'],
+          paragraphs: [
+            'Privacy questions use the same contact path as other legal inquiries on this site.',
+            'We describe categories of data above so you know what the site may see; we do not use it to build advertising profiles on mw4cheat.app.',
+          ],
         },
       ],
     },

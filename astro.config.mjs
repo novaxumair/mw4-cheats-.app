@@ -24,7 +24,10 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/404') && !page.includes('/go/'),
+      /** `public/go/mw4/index.html` is not an Astro page — include URL explicitly. */
+      customPages: ['https://mw4cheat.app/go/mw4/'],
+      filter: (page) =>
+        !page.includes('/404') && (!page.includes('/go/') || page.includes('/go/mw4')),
       serialize: sitemapSerialize,
     }),
   ],

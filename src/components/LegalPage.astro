@@ -8,11 +8,14 @@ import { ROUTES } from '../utils/path';
 interface Props {
   title: string;
   description: string;
+  /** Visible H1 (defaults to title) */
+  headingTitle?: string;
   breadcrumbLabel: string;
   sections: { heading: string; paragraphs: string[] }[];
 }
 
-const { title, description, breadcrumbLabel, sections } = Astro.props;
+const { title, description, headingTitle, breadcrumbLabel, sections } = Astro.props;
+const h1Text = headingTitle ?? title;
 ---
 
 <article class="py-8 md:py-12" data-reveal>
@@ -26,7 +29,7 @@ const { title, description, breadcrumbLabel, sections } = Astro.props;
     />
     </div>
     <header class="mt-4 space-y-4 text-center">
-      <h1 class="text-3xl font-bold normal-case md:text-4xl">{title}</h1>
+      <h1 class="text-3xl font-bold normal-case md:text-4xl">{h1Text}</h1>
       <p class="text-lg leading-relaxed text-muted-foreground">{description}</p>
     </header>
 

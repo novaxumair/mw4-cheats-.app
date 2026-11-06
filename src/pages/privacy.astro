@@ -14,8 +14,8 @@ const seo = resolvePageSeo('/privacy/');
   description={seo.description}
   jsonLd={[
     webPageSchema({
-      name: content.title,
-      description: content.description,
+      name: 'Privacy Policy — MW4 & mw4cheat.app',
+      description: seo.description,
       url: '/privacy/',
     }),
     breadcrumbSchema([
@@ -26,6 +26,7 @@ const seo = resolvePageSeo('/privacy/');
 >
   <LegalPage
     title={content.title}
+    headingTitle="Privacy Policy — MW4 & mw4cheat.app"
     description={content.description}
     breadcrumbLabel="Privacy Policy"
     sections={content.sections}

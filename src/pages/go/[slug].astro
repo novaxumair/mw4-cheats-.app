@@ -1,7 +1,6 @@
 ---
 /**
- * Static checkout redirects for hosts that serve `dist/` without Node middleware.
- * BUY buttons use `/go/{slug}/` — these pages issue a 302 to the affiliate URL from checkout-redirects.mjs.
+ * Static checkout 302 — `/go/mw4/` is `public/go/mw4/index.html` (SEO page + redirect).
  */
 import { CHECKOUT_PATH_REDIRECTS, resolveCheckoutPathRedirect } from '../../config/checkout-redirects.mjs';
 
@@ -10,7 +9,7 @@ export function getStaticPaths() {
   for (const p of CHECKOUT_PATH_REDIRECTS.keys()) {
     const normalized = p.replace(/\/$/, '');
     const m = normalized.match(/^\/go\/([^/]+)$/);
-    if (m) slugs.add(m[1]);
+    if (m && m[1] !== 'mw4') slugs.add(m[1]);
   }
   return [...slugs].map((slug) => ({ params: { slug } }));
 }

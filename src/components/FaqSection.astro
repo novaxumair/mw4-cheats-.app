@@ -15,6 +15,7 @@ interface Props {
   title?: string;
   subtitle?: string;
   titleId?: string;
+  titleHeading?: 'h1' | 'h2';
   showFilters?: boolean;
   filterTopics?: FaqTopic[];
   centered?: boolean;
@@ -32,6 +33,7 @@ const {
   title = 'Straight answers before checkout.',
   subtitle = 'Compatibility, bans and access—no vague promises.',
   titleId = 'faq-heading',
+  titleHeading = 'h1',
   showFilters = false,
   filterTopics,
   centered = false,
@@ -69,6 +71,7 @@ const filters = filterTopics ?? SITE_FAQ_FILTER_TOPICS;
       title={title}
       desc={subtitle}
       titleId={titleId}
+      titleHeading={titleHeading}
       centered={centered}
     />
 

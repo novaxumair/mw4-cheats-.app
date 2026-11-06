@@ -10,7 +10,7 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'MW4 Cheats for PC | Private Cheat, ESP & Spoofer | MW4 Cheat',
+    title: 'Cheats – Read the guides, check status after | MW4 Cheat',
     description:
       'MW4 cheats for PC at mw4cheat.app: a private cheat with aimbot, ESP, and radar, plus an HWID spoofer, account tools, and a skin changer. See mw4cheat.app.',
   },
@@ -25,17 +25,17 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Compare MW4 cheat utilities: HWID spoofer for a hardware ban, account tools for an appeal, and a skin changer for local camo preview only. See mw4cheat.app.',
   },
   '/blog/': {
-    title: 'MW4 Cheat Guides | Aimbot, ESP, HWID & Patches | MW4 Cheat',
+    title: 'Guides – patch day before you queue | MW4 Cheat',
     description:
       'MW4 cheat guides for PC: aimbot versus soft aim, ESP and radar, HWID bans, loader setup, and what to do on patch day before you queue. See mw4cheat.app.',
   },
   '/forum/': {
-    title: 'MW4 Cheats Forum | Player Q&A and Mod Replies | MW4 Cheat',
+    title: 'Forum – Players answer each other on ESP | MW4 Cheat',
     description:
-      'MW4 cheats forum on mw4cheat.app. Players answer each other on ESP, aim, radar, bans, and patch day, and moderators correct the bad advice. See mw4cheat.app.',
+      'MW4 cheats forum on mw4cheat.app. Players answer each other on ESP, aim, radar, bans, and patch day, and moderators correct the bad advice. See mw4cheat.',
   },
   '/faq/': {
-    title: 'MW4 Cheats FAQ | PC Setup, Bans & Products | MW4 Cheat',
+    title: 'MW4 Cheats FAQ | PC Setup, Bans & Products | Cheat',
     description:
       'FAQ for MW4 cheats: Secure Boot, PC-only support, ban risk, the four products, loader status, and where checkout starts on mw4cheat.app. See mw4cheat.app.',
   },
@@ -45,14 +45,14 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Terms for using mw4cheat.app, the MW4 cheats guides, and linked checkout. Read the purchase rules before you buy a cheat, spoofer, or utility.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | MW4 Cheats at mw4cheat.app | MW4 Cheat',
+    title: 'Privacy Policy | MW4 Cheats at mw4cheat.app | Cheat',
     description:
-      'How mw4cheat.app handles analytics, cookies, and messages you send about MW4 cheats, orders, and support. No extra accounts are created here.',
+      'Privacy: How mw4cheat.app handles analytics, cookies, and messages you send about MW4 cheats, orders, and help tickets. No extra accounts are created here.',
   },
   '/about/': {
-    title: 'About MW4 Cheat | PC Cheats, Guides & Support | MW4 Cheat',
+    title: 'About MW4 Cheat | PC Cheats, Guides & Help | Cheat',
     description:
-      'MW4 Cheat publishes PC guides and four products for Modern Warfare 4: a private cheat, HWID spoofer, account workspace, and skin changer. See mw4cheat.app.',
+      'Support: MW4 Cheat publishes PC guides and four products for Modern Warfare 4: a private cheat, HWID spoofer, account workspace, and skin changer.',
   },
   '/support/': {
     title: 'MW4 Cheats Support | Loader, Orders & Access | MW4 Cheat',

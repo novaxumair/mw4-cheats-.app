@@ -77,6 +77,15 @@ function slugify(text: string): string {
     .replace(/^-|-$/g, '');
 }
 const published = parseBlogDate(post.date);
+
+const articleH1 =
+  post.slug === 'best-mw4-cheat-features-competitive'
+    ? `${post.title} (PC guide)`
+    : post.slug === 'modern-warfare-4-cheats-explained'
+      ? `${post.title} — day-one PC guide 2026`
+      : post.slug === 'mw4-aimbot-vs-soft-aim-safety'
+        ? `${post.title} — looks & safety | Cheat`
+        : post.title;
 ---
 
 <BaseLayout
@@ -122,7 +131,7 @@ const published = parseBlogDate(post.date);
           </figure>
 
           <header class="blog-article__header">
-            <h1 class="blog-article__title">{post.title}</h1>
+            <h1 class="blog-article__title">{articleH1}</h1>
             <p class="blog-article__lead">{post.desc}</p>
             {
               post.author && (
@@ -212,6 +221,7 @@ const published = parseBlogDate(post.date);
     <SiteFaqSection
       items={getBlogFaqs(post.tag, post.slug)}
       titleId={`blog-faq-${post.slug}`}
+      titleHeading="h2"
       class="border-t border-border bg-muted/20"
       reveal={false}
     />

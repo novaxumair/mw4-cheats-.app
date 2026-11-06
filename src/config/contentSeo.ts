@@ -30,19 +30,19 @@ export const PRODUCT_SEO: Record<string, SerpMeta> = {
 
 export const BLOG_SEO: Record<string, SerpMeta> = {
   'modern-warfare-4-cheats-explained': {
-    title: 'MW4 Cheats at Launch | Day-One PC Guide 2026 | MW4 Cheat',
+    title: 'Modern Warfare – Day-One PC Guide 2026 | MW4 Cheat',
     description:
-      'What MW4 cheats face on day one: TPM 2.0, Secure Boot, aimbot, ESP, DMZ loot, and how to read a status label before you queue on mw4cheat.app.',
+      'Modern Warfare: What MW4 faces on day one: TPM 2.0, Secure Boot, aimbot, ESP, DMZ loot, and how to read a status label before you queue on mw4cheat.',
   },
   'best-mw4-cheat-features-competitive': {
-    title: 'Best MW4 Cheat Features for 6v6 | PC Guide | MW4 Cheat',
+    title: 'Best MW4 Cheat Features for 6v6 | PC Guide | Cheat',
     description:
       'Which MW4 cheat features help in 6v6: a small aim circle, short ESP, a tight radar, and the loot layer you should turn off before a sweaty lobby.',
   },
   'mw4-aimbot-vs-soft-aim-safety': {
-    title: 'MW4 Aimbot vs Soft Aim | Which Looks Safer | MW4 Cheat',
+    title: 'MW4 Aimbot vs Soft Aim | Which Looks Safer | Cheat',
     description:
-      'An MW4 aimbot and soft aim are the same assist at different speeds. See what killcams show, how small to keep the circle, and why neither one is undetectable.',
+      'An MW4 aimbot and soft aim are the same assist at different speeds. See what killcams show, how small to keep the circle, and why neither one is.',
   },
   'mw4-esp-wallhack-guide-6v6-dmz': {
     title: 'MW4 ESP & Wallhack Guide | 6v6 and DMZ | MW4 Cheat',

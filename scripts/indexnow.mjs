@@ -1,12 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { normalizeSiteOrigin } from './normalize-site-origin.mjs';
+import { DEFAULT_SITE_ORIGIN } from './normalize-site-origin.mjs';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
 const key = process.env.INDEXNOW_KEY?.trim();
-const origin = normalizeSiteOrigin(process.env.PUBLIC_SITE_ORIGIN || process.env.SITE_ORIGIN);
-const host = process.env.INDEXNOW_HOST?.trim() || new URL(origin).hostname;
+const host = process.env.INDEXNOW_HOST?.trim() || new URL(DEFAULT_SITE_ORIGIN).hostname;
 
 if (!key) {
   console.log('IndexNow: skipped (INDEXNOW_KEY not set).');
@@ -33,7 +32,7 @@ fs.writeFileSync(keyFile, key, 'utf8');
 const payload = {
   host,
   key,
-  keyLocation: `${origin}/${key}.txt`,
+  keyLocation: `${DEFAULT_SITE_ORIGIN}/${key}.txt`,
   urlList,
 };
 

@@ -1,9 +1,9 @@
 import { t } from '../i18n';
 import { SITE_DOMAIN as INDEXNOW_HOST_NAME, siteAssetUrl } from './site';
 import { getPageSeoEntry } from './pageSeo';
-import { normalizeSiteOrigin } from './siteOrigin';
 
-export const SITE_ORIGIN = normalizeSiteOrigin(import.meta.env.PUBLIC_SITE_ORIGIN as string | undefined);
+/** Production canonical host only — previews on workers.dev still emit mw4cheat.app URLs. */
+export const SITE_ORIGIN = `https://${t.site.domain}`;
 
 export const DEFAULT_OG_IMAGE = '/images/mw4/asset-01.webp';
 

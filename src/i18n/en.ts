@@ -553,6 +553,7 @@ export const en: Translations = {
             'The site covers four commercial products—private cheat, HWID tooling, account workspace, and skin changer—and a blog library with FAQs and structured data for discovery.',
             'Content is updated when enforcement, patches, or portal modules shift. Always read the current status panel before launching software.',
             'New readers should skim the FAQ for Secure Boot and loader order, then open the product page that matches their goal.',
+            'Editorial pages summarize how each listing behaves on PC; they are not a substitute for the portal’s live compatibility and license text.',
           ],
         },
         {
@@ -579,6 +580,7 @@ export const en: Translations = {
           heading: 'How we use data',
           paragraphs: [
             'Analytics helps improve guides and fix broken links. Help-desk messages retain the email and text you send until the issue is resolved.',
+            'We retain messages only long enough to close a ticket or meet a legal hold; routine backups may keep encrypted copies for a limited window.',
           ],
         },
         {

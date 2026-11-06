@@ -25,14 +25,14 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Compare MW4 cheat utilities: HWID spoofer for a hardware ban, account tools for an appeal, and a skin changer for local camo preview only. See mw4cheat.app.',
   },
   '/blog/': {
-    title: 'Guides – and what to do on patch day before you queue | MW4 Cheat',
+    title: 'Guides – and what to do on patch day before you queue',
     description:
       'MW4 cheat guides for PC: aimbot versus soft aim, ESP and radar, HWID bans, loader setup, and what to do on patch day before you queue. See mw4cheat.app.',
   },
   '/forum/': {
     title: 'Forum – Players answer each other on ESP | MW4 Cheat',
     description:
-      'MW4 cheats forum on mw4cheat.app: players answer on ESP, aim, radar, bans, and patch day; moderators fix bad advice. Forum threads stay short and practical.',
+      'MW4 cheats forum on mw4cheat.app: players answer on ESP, aim, radar, bans, and patch day; moderators fix bad advice.',
   },
   '/faq/': {
     title: 'MW4 Cheats FAQ | PC Setup, Bans & Products | Cheat',
@@ -50,7 +50,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Privacy: How mw4cheat.app handles analytics, cookies, and messages you send about MW4 cheats, orders, and help tickets. No extra accounts are created here.',
   },
   '/about/': {
-    title: 'Support – MW4 Cheat publishes PC guides and four products | MW4 Cheat',
+    title: 'Support – MW4 Cheat publishes PC guides and four products',
     description:
       'Support: MW4 Cheat publishes PC guides and four products for Modern Warfare 4: a private cheat, HWID spoofer, account workspace, and skin changer.',
   },

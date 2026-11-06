@@ -35,7 +35,7 @@ export const BLOG_SEO: Record<string, SerpMeta> = {
       'Modern Warfare: What MW4 faces on day one: TPM 2.0, Secure Boot, aimbot, ESP, DMZ loot, and how to read a status label before you queue on mw4cheat.',
   },
   'best-mw4-cheat-features-competitive': {
-    title: 'Best MW4 Cheat Features for 6v6 | PC Guide | MW4 Cheat',
+    title: 'Best MW4 Cheat Features for 6v6 | PC Guide',
     description:
       'Which MW4 cheat features help in 6v6: a small aim circle, short ESP, a tight radar, and the loot layer you should turn off before a sweaty lobby.',
   },

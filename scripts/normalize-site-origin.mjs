@@ -1,6 +1,5 @@
 /**
- * Canonical https origin (no path). Used by astro.config, finalize-sitemap, and patch-go-mw4-canonical.
- * Set PUBLIC_SITE_ORIGIN for preview (e.g. https://mw4-cheat--app.novaxumair.workers.dev).
+ * Primary site origin (no path). Used by finalize-sitemap and indexnow postbuild scripts.
  */
 
 export const DEFAULT_SITE_ORIGIN = 'https://mw4cheat.app';

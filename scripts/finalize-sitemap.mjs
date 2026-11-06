@@ -1,10 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { normalizeSiteOrigin } from './normalize-site-origin.mjs';
+import { DEFAULT_SITE_ORIGIN } from './normalize-site-origin.mjs';
 
 const root = process.cwd();
 
-const SITE_ORIGIN = normalizeSiteOrigin(process.env.PUBLIC_SITE_ORIGIN || process.env.SITE_ORIGIN);
+/** Always mw4cheat.app — sitemap and canonical listings stay on the primary domain. */
+const SITE_ORIGIN = DEFAULT_SITE_ORIGIN;
 
 const dist = path.join(root, 'dist');
 const source = path.join(dist, 'sitemap-0.xml');

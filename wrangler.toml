@@ -1,9 +1,14 @@
-# Cloudflare Pages — static assets live in ./dist after `npm run build`.
+# Static site output: run `npm run build` first so ./dist exists.
 # https://developers.cloudflare.com/workers/wrangler/configuration/
 #
-# Do NOT use `wrangler deploy` for this repo (that targets Workers and needs main / assets).
-# CI / local: `npm run deploy` → `wrangler pages deploy dist`
+# - **`wrangler deploy`** (e.g. CI still using this): requires `[assets]` below or it errors.
+# - **Cloudflare Pages (recommended):** `npm run deploy` → `wrangler pages deploy dist` — use this in
+#   the dashboard so you do not deploy a separate Worker.
+# - **`pages_build_output_dir`**: hints/tools that this folder is the Pages build output.
 
 name = "mw4cheat-app"
 compatibility_date = "2025-11-06"
 pages_build_output_dir = "dist"
+
+[assets]
+directory = "./dist"

@@ -146,8 +146,8 @@ const readCta =
         <span>{post.readTime}</span>
       </p>
       <Button as="a" href={href} variant="outline" size="sm" class="blog-card__read shrink-0">
-        {readCta}
-        <Icon name="arrowRight" size={16} />
+        <span class="min-w-0">{readCta}</span>
+        <Icon name="arrowRight" size={16} class="shrink-0" />
       </Button>
     </CardFooter>
   </div>

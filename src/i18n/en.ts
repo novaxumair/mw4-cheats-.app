@@ -536,12 +536,14 @@ export const en: Translations = {
   legalPages: {
     about: {
       title: 'About MW4 Cheat',
-      description: 'MW4 Cheat publishes PC-focused Modern Warfare 4 guides and product explainers at mw4cheat.app.',
+      description:
+        'MW4 Cheat publishes PC-focused Modern Warfare 4 guides and product explainers at mw4cheat.app: cheat modules, spoofer context, account tooling limits, and how we cite patch windows.',
       sections: [
         {
           heading: 'Who we are',
           paragraphs: [
             'MW4 Cheat is an independent site for players evaluating private PC tooling for Modern Warfare 4. We publish setup guides, risk context, and product boundaries so you can decide before checkout.',
+            'We describe features as they appear in the portal at publish time; silent hotfixes can change behavior until the status label refreshes.',
             'Game names are used descriptively; trademarks belong to their owners.',
           ],
         },
@@ -550,12 +552,14 @@ export const en: Translations = {
           paragraphs: [
             'The site covers four commercial products—private cheat, HWID tooling, account workspace, and skin changer—and a blog library with FAQs and structured data for discovery.',
             'Content is updated when enforcement, patches, or portal modules shift. Always read the current status panel before launching software.',
+            'New readers should skim the FAQ for Secure Boot and loader order, then open the product page that matches their goal.',
           ],
         },
         {
           heading: 'Help',
           paragraphs: [
-            'Questions go through the help page with your order email and system details—the same workflow as the Support section in the site footer.',
+            'Questions go through the help page with your order email and system details—use the Help entry in the site footer for the same workflow.',
+            'Include your OS build, antivirus stack, and any error text so we can narrow it quickly.',
           ],
         },
       ],
@@ -586,6 +590,7 @@ export const en: Translations = {
           paragraphs: [
             'Privacy questions use the same contact path as other legal inquiries on this site.',
             'We describe categories of data above so you know what the site may see; we do not use it to build advertising profiles on mw4cheat.app.',
+            'If you use MW4 cheats or linked tools, we still only process what you send through forms or analytics as stated above—we never pull inventory or gameplay stats from your game client.',
           ],
         },
       ],

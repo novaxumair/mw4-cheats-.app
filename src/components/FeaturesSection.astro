@@ -5,6 +5,13 @@ import SectionHeader from './SectionHeader.astro';
 import Icon from './icons/Icon.astro';
 import { Badge } from '@/components/starwind/badge';
 
+interface Props {
+  /** Use h2 on the homepage so the hero keeps the only h1. */
+  titleHeading?: 'h1' | 'h2';
+}
+
+const { titleHeading = 'h1' } = Astro.props as Props;
+
 const s = t.features;
 
 function isScriptsHero(title: string) {
@@ -14,7 +21,13 @@ function isScriptsHero(title: string) {
 
 <section id="features" class="border-y border-border bg-muted/20 py-16 md:py-24" aria-labelledby="features-title" data-reveal>
   <div class="mx-auto max-w-6xl px-5">
-    <SectionHeader eyebrow={s.eyebrow} title={s.title} desc={s.subtitle} titleId="features-title" />
+    <SectionHeader
+      eyebrow={s.eyebrow}
+      title={s.title}
+      desc={s.subtitle}
+      titleId="features-title"
+      titleHeading={titleHeading}
+    />
 
     <div
       class="features-bento mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:grid-rows-[repeat(6,auto)] lg:items-stretch lg:gap-4"

@@ -7,6 +7,13 @@ import SectionHeader from './SectionHeader.astro';
 import CatalogCard from './CatalogCard.astro';
 import { productPath } from '../utils/path';
 
+interface Props {
+  /** Use h2 on the homepage so the hero keeps the only h1. */
+  titleHeading?: 'h1' | 'h2';
+}
+
+const { titleHeading = 'h1' } = Astro.props as Props;
+
 const s = t.products;
 
 const primaryProduct = productPages.find((p) => p.slug === 'mw4-private-suite');
@@ -33,7 +40,13 @@ function cardLabel(product: (typeof productPages)[number]) {
 
 <section id="products" class="py-16 md:py-24" aria-labelledby="products-title" data-reveal>
   <div class="mx-auto max-w-6xl px-5">
-    <SectionHeader eyebrow={s.eyebrow} title={s.title} desc={s.subtitle} titleId="products-title" />
+    <SectionHeader
+      eyebrow={s.eyebrow}
+      title={s.title}
+      desc={s.subtitle}
+      titleId="products-title"
+      titleHeading={titleHeading}
+    />
 
     <div class="mt-12 space-y-6">
       <CatalogCard

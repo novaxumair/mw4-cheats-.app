@@ -12,13 +12,26 @@ import { Button } from '@/components/starwind/button';
 
 const homeFaqs = getLandingFaqs();
 const featuredPosts = getFeaturedBlogPosts(3);
+
+interface Props {
+  /** Homepage: h2 for section titles and FAQ so the hero keeps the only h1. */
+  titleHeading?: 'h1' | 'h2';
+}
+
+const { titleHeading = 'h1' } = Astro.props as Props;
 ---
 
 <WorkflowSection />
 
 <section id="blog" class="border-y border-border bg-muted/20 py-16 md:py-24" aria-labelledby="blog-title" data-reveal>
   <div class="mx-auto max-w-6xl px-5">
-    <SectionHeader eyebrow={t.blog.eyebrow} title={t.blog.title} desc={t.blog.subtitle} titleId="blog-title" />
+    <SectionHeader
+      eyebrow={t.blog.eyebrow}
+      title={t.blog.title}
+      desc={t.blog.subtitle}
+      titleId="blog-title"
+      titleHeading={titleHeading}
+    />
 
     <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-10">
       {featuredPosts.map((post, i) => (
@@ -35,4 +48,4 @@ const featuredPosts = getFeaturedBlogPosts(3);
   </div>
 </section>
 
-<SiteFaqSection id="faq" titleId="faq-title" items={homeFaqs} />
+<SiteFaqSection id="faq" titleId="faq-title" titleHeading={titleHeading} items={homeFaqs} />

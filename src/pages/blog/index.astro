@@ -58,7 +58,9 @@ const tagIcon = (tag: string): IconName => blogTagIcons[tag] ?? 'tag';
     <div class="mx-auto max-w-6xl px-5">
       <header class="section-header max-w-2xl">
         <p class="section-header__eyebrow">{t.blog.eyebrow}</p>
-        <h1 id="blog-latest-title" class="section-header__title">Latest articles — Guides</h1>
+        <h1 id="blog-latest-title" class="section-header__title">
+          Guides — patch notes before you queue for MW4 cheat articles
+        </h1>
         <p class="section-header__subtitle">{t.blog.latestSubtitle}</p>
       </header>
 
@@ -115,7 +117,7 @@ const tagIcon = (tag: string): IconName => blogTagIcons[tag] ?? 'tag';
       <div class="mt-12 flex justify-start lg:justify-center">
         <Button as="a" href={ROUTES.home} variant="outline">
           <Icon name="chevronLeft" size={16} />
-          Back to home
+          Return to homepage
         </Button>
       </div>
     </div>

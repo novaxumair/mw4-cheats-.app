@@ -1,44 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { normalizeSiteOrigin } from './normalize-site-origin.mjs';
 
 const root = process.cwd();
-const DEFAULT_ORIGIN = 'https://mw4cheat.app';
 
-/**
- * @param {string | undefined} envValue
- * @returns {string} Canonical https origin (no path, no trailing slash)
- */
-function normalizeSiteOrigin(envValue) {
-  const trimmed = (envValue ?? '').trim();
-  const withScheme =
-    trimmed === ''
-      ? DEFAULT_ORIGIN
-      : /^https?:\/\//i.test(trimmed)
-        ? trimmed
-        : `https://${trimmed.replace(/^\/+/, '')}`;
-
-  let url;
-  try {
-    url = new URL(withScheme);
-  } catch {
-    console.error(`finalize-sitemap: invalid SITE_ORIGIN: ${JSON.stringify(envValue)}`);
-    process.exit(1);
-  }
-
-  if (url.protocol !== 'https:') {
-    console.error('finalize-sitemap: SITE_ORIGIN must use https://');
-    process.exit(1);
-  }
-
-  if (url.pathname !== '/' && url.pathname !== '') {
-    console.error('finalize-sitemap: SITE_ORIGIN must be an origin only (no path), e.g. https://mw4cheat.app');
-    process.exit(1);
-  }
-
-  return url.origin;
-}
-
-const SITE_ORIGIN = normalizeSiteOrigin(process.env.SITE_ORIGIN);
+const SITE_ORIGIN = normalizeSiteOrigin(process.env.PUBLIC_SITE_ORIGIN || process.env.SITE_ORIGIN);
 
 const dist = path.join(root, 'dist');
 const source = path.join(dist, 'sitemap-0.xml');

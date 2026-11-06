@@ -15,6 +15,7 @@ interface Props {
 const { titleHeading = 'h1' } = Astro.props as Props;
 
 const s = t.products;
+const isHome = titleHeading === 'h2';
 
 const primaryProduct = productPages.find((p) => p.slug === 'mw4-private-suite');
 const utilityProducts = productPages.filter((p) => p.slug !== 'mw4-private-suite');
@@ -35,6 +36,23 @@ function cardLabel(product: (typeof productPages)[number]) {
     return product.tier ?? product.name;
   }
   return product.category ?? 'Utility';
+}
+
+/** Homepage: unique CTA labels per product URL (audit: avoid repeated anchor text). */
+function catalogBuyLabel(slug: string): string {
+  if (slug === 'mw4-private-suite') return 'Private suite — checkout';
+  if (slug === 'hwid-spoofer') return 'HWID spoofer — checkout';
+  if (slug === 'game-accounts') return 'Account workspace — checkout';
+  if (slug === 'skin-changer') return 'Skin changer — checkout';
+  return 'Buy now';
+}
+
+function catalogViewLabel(slug: string): string {
+  if (slug === 'mw4-private-suite') return 'Private suite — full specs';
+  if (slug === 'hwid-spoofer') return 'HWID spoofer — full specs';
+  if (slug === 'game-accounts') return 'Account workspace — full specs';
+  if (slug === 'skin-changer') return 'Skin changer — full specs';
+  return 'View details';
 }
 ---
 
@@ -60,8 +78,8 @@ function cardLabel(product: (typeof productPages)[number]) {
         icon={cardIcon(primaryProduct)}
         badge={primaryProduct.badge}
         variant={primaryProduct.variant}
-        buyLabel="Buy now"
-        viewLabel="View details"
+        buyLabel={isHome ? catalogBuyLabel(primaryProduct.slug) : 'Buy now'}
+        viewLabel={isHome ? catalogViewLabel(primaryProduct.slug) : 'View details'}
         maxFeatures={5}
       />
 
@@ -78,8 +96,8 @@ function cardLabel(product: (typeof productPages)[number]) {
               icon={cardIcon(product)}
               badge={product.badge}
               variant={product.variant}
-              buyLabel="Buy now"
-              viewLabel="View details"
+              buyLabel={isHome ? catalogBuyLabel(product.slug) : 'Buy now'}
+              viewLabel={isHome ? catalogViewLabel(product.slug) : 'View details'}
               maxFeatures={5}
             />
           ))

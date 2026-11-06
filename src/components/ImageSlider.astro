@@ -21,9 +21,11 @@ interface Props {
   id: string;
   variant?: 'default' | 'hero';
   desktopOnly?: boolean;
+  /** Defer Embla init to idle time (homepage LCP — reduces main-thread work at parse). */
+  deferEmblaInit?: boolean;
 }
 
-const { images, id, variant = 'default', desktopOnly = false } = Astro.props;
+const { images, id, variant = 'default', desktopOnly = false, deferEmblaInit = false } = Astro.props;
 const isHero = variant === 'hero';
 const imageSizes = isHero ? HERO_IMAGE_SIZES : '(min-width: 1024px) 640px, 100vw';
 const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
@@ -112,8 +114,8 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
 </div>
 
 {isHero && (
-  <script>
+  <script define:vars={{ deferEmblaInit }}>
     import { setupHeroEmbla } from '../scripts/hero-embla.ts';
-    setupHeroEmbla();
+    setupHeroEmbla(deferEmblaInit);
   </script>
 )}

@@ -115,16 +115,29 @@ async function initHeroCarousels(root: ParentNode = document) {
   });
 }
 
-export function setupHeroEmbla() {
+export function setupHeroEmbla(deferInit = false) {
+  const schedule =
+    deferInit && typeof window !== 'undefined'
+      ? (fn: () => void) => {
+          if (typeof window.requestIdleCallback === 'function') {
+            window.requestIdleCallback(() => fn(), { timeout: 2500 });
+          } else {
+            window.setTimeout(fn, 1);
+          }
+        }
+      : (fn: () => void) => {
+          fn();
+        };
+
   const run = () => {
     void initHeroCarousels();
   };
 
-  run();
+  schedule(run);
 
   window.matchMedia(DESKTOP_MQ).addEventListener('change', (event) => {
-    if (event.matches) run();
+    if (event.matches) schedule(run);
   });
 
-  document.addEventListener('astro:page-load', run);
+  document.addEventListener('astro:page-load', () => schedule(run));
 }

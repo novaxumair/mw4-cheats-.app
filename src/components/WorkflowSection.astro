@@ -3,6 +3,14 @@ import '../styles/workflow-section.css';
 import { t } from '../i18n';
 import { Button } from '@/components/starwind/button';
 
+interface Props {
+  /** Homepage-only overrides so CTAs do not repeat hero/catalog anchor text. */
+  ctaPrimaryLabel?: string;
+  ctaSecondaryLabel?: string;
+}
+
+const { ctaPrimaryLabel, ctaSecondaryLabel } = Astro.props as Props;
+
 const w = t.workflow;
 ---
 
@@ -27,7 +35,7 @@ const w = t.workflow;
           size="lg"
           class="workflow-section__cta rounded-xl"
         >
-          {w.ctaLabel}
+          {ctaPrimaryLabel ?? w.ctaLabel}
         </Button>
         <Button
           as="a"
@@ -36,7 +44,7 @@ const w = t.workflow;
           size="lg"
           class="workflow-section__cta rounded-xl"
         >
-          {w.ctaSecondary}
+          {ctaSecondaryLabel ?? w.ctaSecondary}
         </Button>
       </div>
     </div>

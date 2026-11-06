@@ -1,3 +1,5 @@
+import type { IconName } from '../components/icons/types';
+
 export interface SiteConfig {
   name: string;
   domain: string;
@@ -33,7 +35,7 @@ export interface TierCard {
   features: string[];
   more: number;
   href: string;
-  variant: 'essential' | 'popular' | 'limited';
+  variant?: 'essential' | 'popular' | 'limited';
 }
 
 export interface ProductCard {
@@ -88,6 +90,13 @@ export interface WhyCompareRow {
   desc: string;
 }
 
+/** Hero stat cards under the image slider (icon + primary + secondary line). */
+export interface HeroShowcasePill {
+  icon: IconName;
+  primary: string;
+  secondary: string;
+}
+
 export interface WhyMetric {
   value: string;
   title: string;
@@ -102,12 +111,16 @@ export interface Translations {
     eyebrow: string;
     titleLine1: string;
     titleLine2: string;
+    /** When set, overrides default product carousel + metrics strip (MW4-only UX). */
+    showcaseTitle?: string;
+    showcaseDesc?: string;
+    /** Four stat/trust cards under the hero image (same card UI as products grid). */
+    showcasePills: HeroShowcasePill[];
     subtitle: string;
     ctaPrimary: string;
     ctaDiscord: string;
     modesLabel: string;
     modes: string[];
-    metrics: { label: string; strong: string }[];
   };
   features: {
     eyebrow: string;
@@ -211,7 +224,7 @@ export interface Translations {
       href: string;
     }[];
     ticketTitle: string;
-    ticketItems: { title: string; desc: string }[];
+    ticketItems: { icon: string; title: string; desc: string }[];
   };
   faq: {
     eyebrow: string;

@@ -26,6 +26,9 @@ export function formatPlanPrice(usd: number): string {
 }
 
 export function checkoutUrlWithPlan(baseUrl: string, planId: ProductPlanId): string {
+  if (baseUrl.startsWith('http://') || baseUrl.startsWith('https://')) {
+    return baseUrl;
+  }
   const separator = baseUrl.includes('?') ? '&' : '?';
   return `${baseUrl}${separator}plan=${planId}`;
 }

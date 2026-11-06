@@ -15,10 +15,10 @@ const { product } = Astro.props;
     <Badge variant="secondary">{product.badge}</Badge>
     {product.variant === 'popular' && <Badge>Popular</Badge>}
     {product.variant === 'limited' && <Badge variant="warning">Limited</Badge>}
-    <Badge variant="outline">Dota 2</Badge>
+    <Badge variant="outline">MW4 PC</Badge>
     <Badge variant="outline" class="gap-1.5">
       <Icon name="shieldCheck" size={13} class="icon-app--primary" />
-      Undetected
+      Portal maintained
     </Badge>
   </div>
   <h1 class="max-w-3xl text-3xl font-bold normal-case leading-tight md:text-4xl">{product.title}</h1>

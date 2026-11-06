@@ -1,6 +1,10 @@
 import type { FaqItem } from '../i18n/types';
-import { SUPPORT_EMAIL } from '../config/site';
+import { SUPPORT_EMAIL, NAV_LOGO_SRC } from '../config/site';
 import { SITE_ORIGIN, absoluteAssetUrl, canonicalUrl, getOrganizationSameAs } from '../config/seo';
+import { t } from '../i18n';
+
+const brand = t.site.name;
+const orgLogo = absoluteAssetUrl(NAV_LOGO_SRC);
 
 export interface BreadcrumbItem {
   name: string;
@@ -24,11 +28,10 @@ export function websiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'DotaCheats',
+    name: brand,
     url: `${SITE_ORIGIN}/`,
     inLanguage: 'en-US',
-    description:
-      'Dota 2 cheats with scripts, map hack, zoom hack, Skin Changer and ranked-safe tiers for PC.',
+    description: t.site.description,
   };
 }
 
@@ -38,9 +41,9 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'DotaCheats',
+    name: brand,
     url: `${SITE_ORIGIN}/`,
-    logo: `${SITE_ORIGIN}/logo.svg`,
+    logo: orgLogo,
     email: SUPPORT_EMAIL,
     ...(sameAs.length > 0 ? { sameAs } : {}),
     contactPoint: [
@@ -66,7 +69,7 @@ export function collectionPageSchema(input: { name: string; description: string;
     inLanguage: 'en-US',
     isPartOf: {
       '@type': 'WebSite',
-      name: 'DotaCheats',
+      name: brand,
       url: `${SITE_ORIGIN}/`,
     },
   };
@@ -82,7 +85,7 @@ export function webPageSchema(input: { name: string; description: string; url: s
     inLanguage: 'en-US',
     isPartOf: {
       '@type': 'WebSite',
-      name: 'DotaCheats',
+      name: brand,
       url: `${SITE_ORIGIN}/`,
     },
   };
@@ -131,7 +134,7 @@ export function discussionForumPostingSchema(input: {
     url: canonicalUrl(input.url),
     author: { '@type': 'Person', name: input.author },
     commentCount: input.comments,
-    isPartOf: { '@type': 'CollectionPage', name: 'DotaCheats Community Forum', url: canonicalUrl('/forum/') },
+    isPartOf: { '@type': 'CollectionPage', name: `${brand} Community Forum`, url: canonicalUrl('/forum/') },
   };
 }
 
@@ -156,7 +159,7 @@ export function productSchema(input: {
     sku: input.sku ?? input.url.replace(/\//g, '-'),
     brand: {
       '@type': 'Brand',
-      name: 'DotaCheats',
+      name: brand,
     },
     ...(input.image ? { image: absoluteAssetUrl(input.image) } : {}),
     offers: {
@@ -166,7 +169,7 @@ export function productSchema(input: {
       availability: 'https://schema.org/InStock',
       seller: {
         '@type': 'Organization',
-        name: 'DotaCheats',
+        name: brand,
       },
     },
   };
@@ -209,14 +212,14 @@ export function articleSchema(input: {
     inLanguage: 'en-US',
     author: {
       '@type': 'Organization',
-      name: 'DotaCheats',
+      name: brand,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'DotaCheats',
+      name: brand,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_ORIGIN}/logo.svg`,
+        url: orgLogo,
       },
     },
     mainEntityOfPage: {

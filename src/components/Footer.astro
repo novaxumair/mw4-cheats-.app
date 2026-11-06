@@ -1,11 +1,13 @@
 ---
 import { t } from '../i18n';
+import { NAV_LOGO_SRC } from '../config/site';
 import { Separator } from '@/components/starwind/separator';
+import { ROUTES, productPath } from '../utils/path';
 
 const resourceLinks = [
   { href: '/blog/', label: 'Blog archive', ariaLabel: 'Blog' },
-  { href: '/products/dota-2-cheats/elite/', label: 'Elite cheats', ariaLabel: 'Elite cheats' },
-  { href: '/products/dota-2-cheats/', label: 'Products & utilities', ariaLabel: 'Products' },
+  { href: productPath('mw4-private-suite'), label: 'Private cheat', ariaLabel: 'MW4 private cheat' },
+  { href: ROUTES.products, label: 'All products', ariaLabel: 'Products' },
   { href: '/support/', label: t.footer.support },
 ];
 
@@ -21,8 +23,7 @@ const legalLinks = [
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="space-y-4">
         <a href="/" class="inline-flex items-center gap-2.5 font-[family-name:var(--font-heading)] text-lg font-bold" aria-label={t.ui.homeAria}>
-          <img src="/logo.svg" alt="" width="32" height="32" class="rounded-md" />
-          <span aria-hidden="true">Dota<span class="text-primary">Cheats</span></span>
+          <img src={NAV_LOGO_SRC} alt="" width="220" height="91" class="h-8 w-auto max-w-[min(220px,70vw)] object-contain object-left" />
         </a>
         <p class="text-sm text-muted-foreground">{t.footer.tagline}</p>
       </div>

@@ -4,11 +4,41 @@ import sharp from 'sharp';
 
 const root = process.cwd();
 const publicDir = path.join(root, 'public');
-const logoSvg = fs.readFileSync(path.join(publicDir, 'logo.svg'));
+const logoPng = path.join(publicDir, 'images/brand/mw4-logo.png');
 
-await sharp(logoSvg).resize(180, 180).png().toFile(path.join(publicDir, 'apple-touch-icon.png'));
-await sharp(logoSvg).resize(32, 32).png().toFile(path.join(publicDir, 'favicon-32.png'));
-await sharp(logoSvg).resize(16, 16).png().toFile(path.join(publicDir, 'favicon-16.png'));
-await sharp(logoSvg).resize(32, 32).png().toFile(path.join(publicDir, 'favicon.ico'));
+if (!fs.existsSync(logoPng)) {
+  console.error(`generate-brand-icons: missing ${path.relative(root, logoPng)}`);
+  process.exit(1);
+}
 
-console.log('Brand icons generated: apple-touch-icon.png, favicon.ico, favicon-16/32.png');
+/** Source art has alpha; keep transparency for nav + favicons. */
+const base = sharp(logoPng).ensureAlpha();
+
+const transparent = { r: 0, g: 0, b: 0, alpha: 0 };
+
+await base
+  .clone()
+  .resize(180, 180, { fit: 'contain', background: transparent })
+  .png()
+  .toFile(path.join(publicDir, 'apple-touch-icon.png'));
+
+await base
+  .clone()
+  .resize(32, 32, { fit: 'contain', background: transparent })
+  .png()
+  .toFile(path.join(publicDir, 'favicon-32.png'));
+
+await base
+  .clone()
+  .resize(16, 16, { fit: 'contain', background: transparent })
+  .png()
+  .toFile(path.join(publicDir, 'favicon-16.png'));
+
+/** Default tab icon (transparent PNG; browsers use this instead of legacy .ico). */
+await base
+  .clone()
+  .resize(32, 32, { fit: 'contain', background: transparent })
+  .png()
+  .toFile(path.join(publicDir, 'favicon.png'));
+
+console.log('Brand icons generated from images/brand/mw4-logo.png (transparent).');

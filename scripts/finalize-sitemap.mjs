@@ -2,6 +2,44 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
+const DEFAULT_ORIGIN = 'https://mw4cheat.app';
+
+/**
+ * @param {string | undefined} envValue
+ * @returns {string} Canonical https origin (no path, no trailing slash)
+ */
+function normalizeSiteOrigin(envValue) {
+  const trimmed = (envValue ?? '').trim();
+  const withScheme =
+    trimmed === ''
+      ? DEFAULT_ORIGIN
+      : /^https?:\/\//i.test(trimmed)
+        ? trimmed
+        : `https://${trimmed.replace(/^\/+/, '')}`;
+
+  let url;
+  try {
+    url = new URL(withScheme);
+  } catch {
+    console.error(`finalize-sitemap: invalid SITE_ORIGIN: ${JSON.stringify(envValue)}`);
+    process.exit(1);
+  }
+
+  if (url.protocol !== 'https:') {
+    console.error('finalize-sitemap: SITE_ORIGIN must use https://');
+    process.exit(1);
+  }
+
+  if (url.pathname !== '/' && url.pathname !== '') {
+    console.error('finalize-sitemap: SITE_ORIGIN must be an origin only (no path), e.g. https://mw4cheat.app');
+    process.exit(1);
+  }
+
+  return url.origin;
+}
+
+const SITE_ORIGIN = normalizeSiteOrigin(process.env.SITE_ORIGIN);
+
 const dist = path.join(root, 'dist');
 const source = path.join(dist, 'sitemap-0.xml');
 
@@ -38,10 +76,33 @@ function formatUrlset(xml) {
 const formatted = formatUrlset(raw);
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
 
+const expectedHost = new URL(SITE_ORIGIN).hostname.toLowerCase();
+const locPattern = /<loc>([^<]+)<\/loc>/g;
+let m;
+while ((m = locPattern.exec(formatted)) !== null) {
+  let locUrl;
+  try {
+    locUrl = new URL(m[1].trim());
+  } catch {
+    console.error(`finalize-sitemap: invalid <loc> URL: ${m[1]}`);
+    process.exit(1);
+  }
+  if (locUrl.hostname.toLowerCase() !== expectedHost) {
+    console.error(
+      `finalize-sitemap: <loc> host ${locUrl.hostname} does not match SITE_ORIGIN host ${expectedHost}`,
+    );
+    process.exit(1);
+  }
+  if (locUrl.protocol !== 'https:') {
+    console.error(`finalize-sitemap: <loc> must use https — got ${locUrl.href}`);
+    process.exit(1);
+  }
+}
+
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://dotacheats.com/sitemap.xml</loc>
+    <loc>${SITE_ORIGIN}/sitemap.xml</loc>
     <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>
   </sitemap>
 </sitemapindex>
@@ -49,4 +110,4 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), indexXml, 'utf8');
 fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
 
-console.log(`Sitemap finalized: ${urlCount} URLs → dist/sitemap.xml`);
+console.log(`Sitemap finalized: ${urlCount} URLs → dist/sitemap.xml (${expectedHost})`);

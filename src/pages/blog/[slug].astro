@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../i18n';
 import { getAllBlogSlugs, getBlogPost, getRelatedBlogPosts } from '../../data/blog';
 import { pageTitle } from '../../config/seo';
+import { getBlogSeo } from '../../config/contentSeo';
 import {
   articleSchema,
   breadcrumbSchema,
@@ -22,7 +23,8 @@ import { Badge } from '@/components/starwind/badge';
 import { Button } from '@/components/starwind/button';
 import { Prose } from '@/components/starwind/prose';
 import BlogPostCta from '../../components/BlogPostCta.astro';
-import { normalizeInternalPath, ROUTES } from '../../utils/path';
+import { blogPostPath, normalizeInternalPath, ROUTES } from '../../utils/path';
+import { SITE_URL } from '../../config/site';
 
 export function getStaticPaths() {
   return getAllBlogSlugs().map((slug) => ({ params: { slug } }));
@@ -35,7 +37,11 @@ if (!post) {
   return Astro.redirect('/blog/');
 }
 
-const postPath = `/blog/${post.slug}/`;
+const postPath = blogPostPath(post.slug);
+const seo = getBlogSeo(post.slug) ?? {
+  title: pageTitle(post.title),
+  description: post.desc,
+};
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Blog', path: '/blog/' },
@@ -44,16 +50,22 @@ const breadcrumbs = [
 
 const related = getRelatedBlogPosts(post.slug, 3);
 
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function linkify(text: string): string {
+  const origin = SITE_URL.replace(/\/$/, '');
+  const absPattern = new RegExp(`(${escapeRegExp(origin)}[^\\s.,;)]*)`, 'g');
   return text
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label: string, href: string) => {
       const normalized = normalizeInternalPath(href);
       return `<a href="${normalized}">${label}</a>`;
     })
-    .replace(/(https:\/\/dotacheats\.com[^\s.,;)]*)/g, (_match, url: string) => {
-      const path = url.replace(/^https:\/\/dotacheats\.com/, '');
+    .replace(absPattern, (_match, url: string) => {
+      const path = url.replace(origin, '');
       const normalized = normalizeInternalPath(path);
-      const href = normalized.startsWith('http') ? normalized : `https://dotacheats.com${normalized}`;
+      const href = normalized.startsWith('http') ? normalized : `${origin}${normalized}`;
       return `<a href="${href}">${url}</a>`;
     });
 }
@@ -68,8 +80,8 @@ const published = parseBlogDate(post.date);
 ---
 
 <BaseLayout
-  title={pageTitle(post.title)}
-  description={post.desc}
+  title={seo.title}
+  description={seo.description}
   ogType="article"
   ogImage={post.image}
   ogImageAlt={post.title}
@@ -179,8 +191,8 @@ const published = parseBlogDate(post.date);
           </Prose>
 
           <nav class="blog-article__actions" aria-label="Continue reading">
-            <Button as="a" href={checkoutPath('dota2')} variant="primary" aria-label={t.ui.checkoutAria}>
-              Buy Dota 2 Cheats
+            <Button as="a" href={checkoutPath('mw4')} variant="primary" aria-label={t.ui.checkoutAria}>
+              MW4 Private Cheat
               <Icon name="arrowRight" size={17} />
             </Button>
             <Button as="a" href={ROUTES.products} variant="outline">
@@ -196,9 +208,12 @@ const published = parseBlogDate(post.date);
     </div>
   </article>
 
-  <SiteFaqSection
-    items={getBlogFaqs(post.tag, post.slug)}
-    titleId={`blog-faq-${post.slug}`}
-    class="border-t border-border bg-muted/20"
-  />
+  <div data-reveal>
+    <SiteFaqSection
+      items={getBlogFaqs(post.tag, post.slug)}
+      titleId={`blog-faq-${post.slug}`}
+      class="border-t border-border bg-muted/20"
+      reveal={false}
+    />
+  </div>
 </BaseLayout>

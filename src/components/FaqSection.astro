@@ -1,5 +1,5 @@
 ---
-import type { SiteFaqItem, FaqTopic } from '../data/faq';
+import { SITE_FAQ_FILTER_TOPICS, type SiteFaqItem, type FaqTopic } from '../data/faq';
 import SectionHeader from './SectionHeader.astro';
 import Icon from './icons/Icon.astro';
 import {
@@ -22,6 +22,8 @@ interface Props {
   contentAlign?: 'left' | 'center';
   id?: string;
   class?: string;
+  /** Scroll fade-in (default true) */
+  reveal?: boolean;
 }
 
 const {
@@ -36,20 +38,21 @@ const {
   contentAlign = 'center',
   id: sectionId,
   class: className,
+  reveal = true,
 } = Astro.props;
 
 const topicLabels: Record<FaqTopic, string> = {
   all: 'All',
   plans: 'Plans',
+  combat: 'Combat',
   esp: 'Map hack / ESP',
-  scripts: 'Scripts',
   safety: 'Safety',
   products: 'Products',
   blog: 'Blog',
   setup: 'Setup',
 };
 
-const filters = filterTopics ?? (['all', 'plans', 'esp', 'scripts', 'safety', 'products'] as FaqTopic[]);
+const filters = filterTopics ?? SITE_FAQ_FILTER_TOPICS;
 ---
 
 <section
@@ -57,6 +60,7 @@ const filters = filterTopics ?? (['all', 'plans', 'esp', 'scripts', 'safety', 'p
   class:list={['py-16 md:py-24', className]}
   aria-labelledby={titleId}
   data-faq-section={showFilters ? '' : undefined}
+  data-reveal={reveal ? '' : undefined}
 >
   <div class="mx-auto max-w-6xl px-5">
     <div class:list={[contentAlign === 'center' && 'mx-auto max-w-3xl', contentAlign === 'left' && 'product-detail__narrow max-w-3xl']}>

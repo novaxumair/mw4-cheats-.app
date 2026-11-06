@@ -208,6 +208,7 @@ export const iconRegistry: Record<IconName, AstroComponent> = {
   comparePriorityPatch: Crown,
   compareDevSupport: Headphones,
   compareCloudBackup: Cloud,
+  compareRefresh: RefreshCw,
   sidebarHub: LayoutDashboard,
   sidebarLite: Eye,
   sidebarPro: Crosshair,

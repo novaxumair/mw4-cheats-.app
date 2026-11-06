@@ -10,59 +10,54 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    // gscNote: Keep primary keyword "dota 2 cheats" near front; trim if title truncates in SERP.
-    title: 'Dota 2 Cheats & Hacks | Scripts, Map Hack & ESP',
+    title: 'MW4 Cheats for PC | Private Cheat, ESP & Spoofer | MW4 Cheat',
     description:
-      'Dota 2 cheats for PC ranked: scripts, map hack, zoom hack, and skin changer tiers updated every patch at dotacheats.com.',
+      'MW4 cheats for PC at mw4cheat.app: a private cheat with aimbot, ESP, and radar, plus an HWID spoofer, account tools, and a skin changer. See mw4cheat.app.',
   },
-  '/products/dota-2-cheats/': {
-    title: 'Dota 2 Elite Cheats & Utility Products',
+  '/products/mw4-cheats/': {
+    title: 'MW4 Cheats for Sale | Cheat, Spoofer & Skins | MW4 Cheat',
     description:
-      'Elite dota 2 cheats plus HWID spoofer, UGC tools, and Skin Changer utilities for Steam ranked on dotacheats.com.',
+      'Shop MW4 cheats on mw4cheat.app. The private cheat, HWID spoofer, account workspace, and skin changer each have their own page and checkout.',
   },
-  '/products/dota-2-cheats/elite/': {
-    title: 'Dota 2 Elite Cheats | Bots & Full Map Hack',
+  '/products/mw4-cheats/utilities/': {
+    title: 'MW4 Cheat Utilities | HWID, Accounts & Skins | MW4 Cheat',
     description:
-      'Elite tier: auto farm bot, kill steal, skin changer, full map hack suite, and priority patch delivery.',
-  },
-  '/products/dota-2-cheats/utilities/': {
-    title: 'Dota 2 Utilities | HWID, UGC & Skin Changer',
-    description:
-      'Choose HWID Spoofer, UGC, or Skin Changer—when each utility fits and links to full product pages.',
+      'Compare MW4 cheat utilities: HWID spoofer for a hardware ban, account tools for an appeal, and a skin changer for local camo preview only. See mw4cheat.app.',
   },
   '/blog/': {
-    title: 'Dota 2 Cheats Guides & Patch Notes',
+    title: 'MW4 Cheat Guides | Aimbot, ESP, HWID & Patches | MW4 Cheat',
     description:
-      'Setup guides, Lite vs Pro comparisons, VAC patch checklists, and ranked config tips for dota cheats.',
+      'MW4 cheat guides for PC: aimbot versus soft aim, ESP and radar, HWID bans, loader setup, and what to do on patch day before you queue. See mw4cheat.app.',
   },
   '/forum/': {
-    title: 'Dota 2 Community Forum | DotaCheats',
-    description: 'Join Dota players to discuss heroes, builds, patch changes, guides, and community moments.',
+    title: 'MW4 Cheats Forum | Player Q&A and Mod Replies | MW4 Cheat',
+    description:
+      'MW4 cheats forum on mw4cheat.app. Players answer each other on ESP, aim, radar, bans, and patch day, and moderators correct the bad advice. See mw4cheat.app.',
   },
   '/faq/': {
-    title: 'FAQ | Dota 2 Cheats, Products & Setup',
+    title: 'MW4 Cheats FAQ | PC Setup, Bans & Products | MW4 Cheat',
     description:
-      'Answers on cheat tiers, map hack, scripts, HWID tools, checkout, and blog guides at dotacheats.com.',
+      'FAQ for MW4 cheats: Secure Boot, PC-only support, ban risk, the four products, loader status, and where checkout starts on mw4cheat.app. See mw4cheat.app.',
   },
   '/terms/': {
-    title: 'Terms & Conditions | DotaCheats',
+    title: 'Terms & Conditions | MW4 Cheats at mw4cheat.app | MW4 Cheat',
     description:
-      'Purchase terms, license use, and refund policy for DotaCheats products sold through dotacheats.com.',
+      'Terms for using mw4cheat.app, the MW4 cheats guides, and linked checkout. Read the purchase rules before you buy a cheat, spoofer, or utility.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | DotaCheats',
+    title: 'Privacy Policy | MW4 Cheats at mw4cheat.app | MW4 Cheat',
     description:
-      'How dotacheats.com uses analytics, cookies, and contact data when you browse or request support.',
+      'How mw4cheat.app handles analytics, cookies, and messages you send about MW4 cheats, orders, and support. No extra accounts are created here.',
   },
   '/about/': {
-    title: 'About DotaCheats',
+    title: 'About MW4 Cheat | PC Cheats, Guides & Support | MW4 Cheat',
     description:
-      'What DotaCheats publishes: Dota 2 cheat tiers, utilities, guides, and status notes at dotacheats.com.',
+      'MW4 Cheat publishes PC guides and four products for Modern Warfare 4: a private cheat, HWID spoofer, account workspace, and skin changer. See mw4cheat.app.',
   },
   '/support/': {
-    title: 'Support | DotaCheats',
+    title: 'MW4 Cheats Support | Loader, Orders & Access | MW4 Cheat',
     description:
-      'Get help with loader setup, HWID, and checkout for Dota 2 cheat tiers and utilities.',
+      'Support for MW4 cheats on mw4cheat.app: checkout problems, loader errors, and portal access. Include your order email and the exact error text.',
   },
 };
 

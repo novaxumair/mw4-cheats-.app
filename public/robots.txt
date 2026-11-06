@@ -3,6 +3,6 @@ Allow: /
 
 Disallow: /go/
 
-Sitemap: https://dotacheats.com/sitemap.xml
+Sitemap: https://mw4cheat.app/sitemap.xml
 
-# RSS: https://dotacheats.com/rss.xml
+# RSS: https://mw4cheat.app/rss.xml

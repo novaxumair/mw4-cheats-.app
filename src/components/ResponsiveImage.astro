@@ -2,8 +2,10 @@
 import {
   DEFAULT_IMAGE_WIDTHS,
   defaultWebpSrc,
+  isDirectRasterSrc,
   responsiveSrcSet,
 } from '../utils/responsiveImage';
+import { siteAssetUrl } from '../config/site';
 
 interface Props {
   src: string;
@@ -31,7 +33,9 @@ const {
   desktopOnly = false,
 } = Astro.props;
 
+const isDirectRaster = isDirectRasterSrc(src);
 const isRaster = /\.(png|jpe?g|webp)$/i.test(src);
+const resolvedSrc = siteAssetUrl(src);
 const srcSet = responsiveSrcSet(src, widths);
 const imgSrc = desktopOnly
   ? 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
@@ -41,7 +45,18 @@ const pictureMedia = desktopOnly ? '(min-width: 1024px)' : undefined;
 ---
 
 {
-  isRaster ? (
+  isRaster && isDirectRaster ? (
+    <img
+      src={resolvedSrc}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      decoding="async"
+      fetchpriority={fetchPriority}
+      class={className}
+    />
+  ) : isRaster ? (
     <picture>
       <source type="image/webp" srcset={srcSet} sizes={pictureSizes} media={pictureMedia} />
       <img
@@ -59,7 +74,7 @@ const pictureMedia = desktopOnly ? '(min-width: 1024px)' : undefined;
     </picture>
   ) : (
     <img
-      src={src}
+      src={resolvedSrc}
       alt={alt}
       width={width}
       height={height}

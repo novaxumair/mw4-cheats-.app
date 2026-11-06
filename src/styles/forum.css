@@ -35,6 +35,9 @@
 .forum-post-actions a,.forum-post-actions button { display:inline-flex; align-items:center; gap:.38rem; border-radius:999px; padding:.42rem .62rem; color:var(--muted-foreground); font-size:.7rem; font-weight:700; }
 .forum-post-actions a:hover,.forum-post-actions button:hover { background:var(--muted); color:var(--foreground); }
 .forum-flair { display:inline-flex; align-items:center; border-radius:999px; padding:.24rem .55rem; font-size:.65rem; font-weight:800; background:color-mix(in oklch,var(--primary) 13%,transparent); color:var(--primary-accent); }
+.forum-role { display:inline-flex; align-items:center; border-radius:999px; padding:.05rem .35rem; font-size:.6rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+.forum-role--op { color:var(--primary-accent); background:color-mix(in oklch,var(--primary) 16%,transparent); }
+.forum-role--mod { color:#f3a85e; background:color-mix(in oklch,#d97536 18%,transparent); }
 .forum-flair.tone-blue { color:#68b9f5;background:color-mix(in oklch,#2686d5 15%,transparent) }.forum-flair.tone-orange { color:#f3a85e;background:color-mix(in oklch,#d97536 15%,transparent) }.forum-flair.tone-green { color:#58ce91;background:color-mix(in oklch,#29a66c 15%,transparent) }
 .forum-sidebar { display:grid; gap:.75rem; }
 .forum-side-card { overflow:hidden; border:1px solid var(--border); border-radius:var(--radius-xl); background:color-mix(in oklch,var(--card) 96%,transparent); }

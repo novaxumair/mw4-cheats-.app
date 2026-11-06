@@ -101,6 +101,43 @@ function initThemeMetaColor() {
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 }
 
+function initScrollReveal() {
+  if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+    document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+
+  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+
+  const seen = new WeakSet<HTMLElement>();
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const el = entry.target as HTMLElement;
+        if (seen.has(el)) continue;
+        seen.add(el);
+        el.classList.add('is-visible');
+        observer.unobserve(el);
+      }
+    },
+    { root: null, rootMargin: '0px 0px 14% 0px', threshold: 0.04 },
+  );
+
+  document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el, i) => {
+    const stagger = el.dataset.revealStagger;
+    if (stagger === 'true' || stagger === '') {
+      el.style.setProperty('--reveal-delay', `${Math.min(i * 70, 380)}ms`);
+    }
+    observer.observe(el);
+  });
+}
+
 function bootSite() {
   initFonts();
   initFaqFilters();
@@ -108,6 +145,7 @@ function bootSite() {
   initInPageScroll();
   initSkipLink();
   initThemeMetaColor();
+  initScrollReveal();
 }
 
 if (document.readyState === 'loading') {

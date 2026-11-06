@@ -8,16 +8,16 @@ import { ROUTES } from '../utils/path';
 ---
 
 <BaseLayout
-  title={`Page not found | ${t.site.name}`}
-  description="The page you requested could not be found on dotacheats.com."
+  title="404 Page Not Found | MW4 Cheats for PC | MW4 Cheat"
+  description="That MW4 cheats page is not on mw4cheat.app. Go back to the homepage, open the private cheat, or browse the PC guides for aimbot, ESP, and the HWID spoofer."
   noindex={true}
 >
-  <section class="py-16 md:py-24">
+  <section class="py-16 md:py-24" data-reveal>
     <div class="mx-auto max-w-lg px-5 text-center">
       <p class="text-sm font-semibold uppercase tracking-wider text-primary">404</p>
       <h1 class="mt-3 text-3xl font-bold uppercase md:text-4xl">Page not found</h1>
       <p class="mt-4 text-muted-foreground">
-        That URL does not exist or may have moved. Head back to the homepage or browse cheat tiers and products.
+        That URL does not exist or may have moved. Head back to the homepage or browse MW4 products.
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
         <Button as="a" href={ROUTES.home} variant="primary">
@@ -25,7 +25,7 @@ import { ROUTES } from '../utils/path';
           <Icon name="arrowRight" size={17} />
         </Button>
         <Button as="a" href={ROUTES.products} variant="outline">View products</Button>
-        <Button as="a" href={ROUTES.productsElite} variant="outline">View Elite cheats</Button>
+        <Button as="a" href={ROUTES.productsElite} variant="outline">Private cheat</Button>
       </div>
     </div>
   </section>

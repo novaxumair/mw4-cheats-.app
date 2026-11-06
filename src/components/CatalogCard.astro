@@ -24,6 +24,8 @@ interface Props {
   buyLabel?: string;
   viewLabel?: string;
   maxFeatures?: number;
+  /** Featured private cheat: larger type, 2-col feature grid, full-width CTAs (homepage / hub). */
+  layout?: 'vertical' | 'horizontal';
   class?: string;
 }
 
@@ -40,8 +42,11 @@ const {
   buyLabel = 'Buy now',
   viewLabel = 'View details',
   maxFeatures = 10,
+  layout = 'vertical',
   class: className,
 } = Astro.props;
+
+const isHorizontal = layout === 'horizontal';
 
 const displayFeatures = features.slice(0, maxFeatures);
 
@@ -52,9 +57,15 @@ const statusBadgeIcon = (text: string): IconName => {
 };
 ---
 
-<Card class:list={['group flex h-full flex-col transition-shadow hover:shadow-md', className]}>
-  <CardHeader class="space-y-2.5">
-    <CardTitle class="text-lg normal-case leading-snug">
+<Card
+  class:list={[
+    'group flex h-full flex-col transition-shadow hover:shadow-md',
+    isHorizontal && 'bg-gradient-to-br from-primary/[0.06] via-card to-card',
+    className,
+  ]}
+>
+  <CardHeader class:list={['space-y-2.5', isHorizontal && 'pb-1']}>
+    <CardTitle class:list={['normal-case leading-snug', isHorizontal ? 'text-2xl font-bold tracking-tight md:text-3xl' : 'text-lg']}>
       <a href={href} class="hover:text-primary">{title}</a>
     </CardTitle>
     <div class="catalog-card__badges flex flex-wrap items-center gap-1.5">
@@ -91,23 +102,41 @@ const statusBadgeIcon = (text: string): IconName => {
       }
     </div>
   </CardHeader>
-  <CardContent class="flex-1">
-    <ul class="space-y-2 text-sm text-muted-foreground">
+  <CardContent class:list={['flex-1', isHorizontal && 'pt-0']}>
+    <ul
+      class:list={[
+        'text-muted-foreground',
+        isHorizontal
+          ? 'grid grid-cols-1 gap-x-10 gap-y-2.5 text-[0.9375rem] leading-snug sm:grid-cols-2'
+          : 'space-y-2 text-sm',
+      ]}
+    >
       {displayFeatures.map((feature) => (
-        <li class="flex items-start gap-2">
-          <Icon name="check" size={14} class="mt-0.5 shrink-0" />
+        <li class:list={['flex items-start gap-2.5', isHorizontal && 'break-inside-avoid']}>
+          <Icon name="check" size={isHorizontal ? 16 : 14} class="mt-0.5 shrink-0 text-primary/80" />
           <span>{feature}</span>
         </li>
       ))}
-      {more > 0 && <li class="text-xs text-muted-foreground">+{more} more features</li>}
+      {
+        more > 0 && (
+          <li
+            class:list={[
+              'text-muted-foreground',
+              isHorizontal ? 'col-span-full mt-1 border-t border-border/60 pt-3 text-xs' : 'text-xs',
+            ]}
+          >
+            +{more} more features in the full product page
+          </li>
+        )
+      }
     </ul>
   </CardContent>
-  <CardFooter class="flex flex-col gap-2 sm:flex-row">
-    <Button as="a" href={buyUrl} variant="primary" size="sm" class="w-full sm:flex-1">
+  <CardFooter class:list={['flex flex-col sm:flex-row', isHorizontal ? 'gap-3 pt-1 sm:pt-2' : 'gap-2', isHorizontal && 'mt-2 border-t-0 sm:mt-1']}>
+    <Button as="a" href={buyUrl} variant="primary" size={isHorizontal ? 'lg' : 'sm'} class="w-full sm:flex-1">
       {buyLabel}
       <Icon name="arrowRight" size={17} />
     </Button>
-    <Button as="a" href={href} variant="outline" size="sm" class="w-full sm:flex-1">
+    <Button as="a" href={href} variant="outline" size={isHorizontal ? 'lg' : 'sm'} class="w-full sm:flex-1">
       {viewLabel}
       <Icon name="arrowRight" size={17} />
     </Button>

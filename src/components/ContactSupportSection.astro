@@ -26,6 +26,7 @@ const c = t.support;
   id="support"
   class:list={['support-section border-y border-border bg-muted/20 py-16 md:py-24', className]}
   aria-labelledby={titleId}
+  data-reveal
 >
   <div class="support-section__inner mx-auto max-w-6xl px-5">
     <header class="section-header section-header--wide support-section__header">
@@ -68,13 +69,22 @@ const c = t.support;
 
     {
       showTicketTips && (
-        <div class="support-section__tips">
-          <h3 class="support-section__tips-title">{c.ticketTitle}</h3>
-          <ul class="support-section__tips-list">
+        <div class="support-section__ticket-panel" aria-labelledby="support-ticket-heading">
+          <h3 id="support-ticket-heading" class="support-section__ticket-heading">
+            {c.ticketTitle}
+          </h3>
+          <ul class="support-section__ticket-grid">
             {c.ticketItems.map((item) => (
-              <li class="support-section__tips-item">
-                <p class="support-section__tips-item-title">{item.title}</p>
-                <p class="support-section__tips-item-desc">{item.desc}</p>
+              <li class="support-section__ticket-card">
+                <div class="support-section__ticket-card-inner">
+                  <span class="support-section__ticket-icon" aria-hidden="true">
+                    <Icon name={item.icon as IconName} size={20} />
+                  </span>
+                  <div class="support-section__ticket-copy">
+                    <p class="support-section__ticket-title">{item.title}</p>
+                    <p class="support-section__ticket-desc">{item.desc}</p>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>

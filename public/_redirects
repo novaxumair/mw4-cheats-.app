@@ -1,0 +1,37 @@
+# Cloudflare Pages / Workers static assets — served from dist/ after build.
+# https://developers.cloudflare.com/pages/configuration/redirects/
+# Order matters: first match wins.
+
+# Apex canonical host (mirror of scripts/serve.mjs)
+https://www.mw4cheat.app/*  https://mw4cheat.app/:splat  301
+
+# Legacy / cheats → current IA
+/cheats  /products/mw4-cheats/  301
+/cheats/  /products/mw4-cheats/  301
+/cheats/lite  /products/mw4-cheats/  301
+/cheats/lite/  /products/mw4-cheats/  301
+/cheats/pro  /products/mw4-cheats/  301
+/cheats/pro/  /products/mw4-cheats/  301
+/cheats/elite  /products/mw4-cheats/  301
+/cheats/elite/  /products/mw4-cheats/  301
+/cheats/compare  /blog/mw4-cheat-feature-comparison/  301
+/cheats/compare/  /blog/mw4-cheat-feature-comparison/  301
+
+# Contact → Support
+/contact  /support/  301
+/contact/  /support/  301
+
+# Trailing-slash normalization (matches scripts/redirects.mjs)
+/blog  /blog/  308
+/about  /about/  308
+/support  /support/  308
+/privacy  /privacy/  308
+/terms  /terms/  308
+/faq  /faq/  308
+/products/mw4-cheats  /products/mw4-cheats/  308
+/products/mw4-cheats/utilities  /products/mw4-cheats/  301
+/products/mw4-cheats/utilities/  /products/mw4-cheats/  301
+
+# Legacy checkout alias
+/go/game-accounts  /go/ugc/  308
+/go/game-accounts/  /go/ugc/  308

@@ -1,0 +1,6 @@
+# Cloudflare Pages / Workers — static deploy from ./dist after `npm run build`
+# https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "mw4cheat-app"
+compatibility_date = "2025-11-06"
+pages_build_output_dir = "dist"

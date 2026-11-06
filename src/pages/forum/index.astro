@@ -1,12 +1,15 @@
 ---
 import '../../styles/forum.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n';
+import { NAV_LOGO_SRC } from '../../config/site';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icon from '../../components/icons/Icon.astro';
 import { forumCategories, forumPosts } from '../../data/forum';
 import { blogPosts, getBlogPostTimestamp } from '../../data/blog';
 import { resolvePageSeo } from '../../config/seo';
 import { breadcrumbSchema, collectionPageSchema } from '../../utils/schema';
+import { forumPostPath } from '../../utils/path';
 
 const seo = resolvePageSeo('/forum/');
 const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Forum', path: '/forum/' }];
@@ -19,17 +22,17 @@ const sourceTimestamp = (path?: string) => {
 ---
 
 <BaseLayout title={seo.title} description={seo.description} jsonLd={[
-  collectionPageSchema({ name: 'DotaCheats Community Forum', description: seo.description, url: '/forum/' }),
+  collectionPageSchema({ name: `${t.site.name} Community Forum`, description: seo.description, url: '/forum/' }),
   breadcrumbSchema(breadcrumbs),
 ]}>
-  <section class="forum-page py-8 md:py-12">
+  <section class="forum-page py-8 md:py-12" data-reveal>
     <div class="mx-auto max-w-6xl px-5">
       <Breadcrumbs items={breadcrumbs} />
       <header class="forum-hero">
         <div>
-          <p class="section-header__eyebrow">Dota 2 community forum</p>
-          <h1>Dota 2 Community Forum</h1>
-          <p class="forum-hero__copy">Practical answers on console setup, map awareness, patch updates, and hero builds.</p>
+          <p class="section-header__eyebrow">Modern Warfare 4 forum</p>
+          <h1>MW4 community forum</h1>
+          <p class="forum-hero__copy">Practical Q&A on MW4 modules, profiles, patch nights, and cosmetics—summarized from blog guides.</p>
         </div>
         <a class="forum-create" href="/blog/"><Icon name="messageCircle" size={17} /> Explore the guides</a>
       </header>
@@ -69,15 +72,15 @@ const sourceTimestamp = (path?: string) => {
                   <div class="forum-post-meta">
                     <span class={`forum-community-avatar tone-${post.categoryTone}`}><Icon name="users" size={15} /></span>
                     <a href="#communities" class="forum-community-name">d/{post.category.toLowerCase().replaceAll(' ', '')}</a>
-                    <span>·</span><span><Icon name="userRound" size={13} /> DotaCheats guide team</span><span>Guide-based Q&amp;A</span>
+                    <span>·</span><span><Icon name="userRound" size={13} /> MW4 Cheat guides</span><span>Guide-based Q&amp;A</span>
                   </div>
-                  <a class="forum-post-title" href={`/forum/${post.slug}/`}>{post.title}</a>
+                  <a class="forum-post-title" href={forumPostPath(post.slug)}>{post.title}</a>
                   <p class="forum-post-excerpt">{post.excerpt}</p>
                   {post.sourceTitle && <p class="forum-source">From the guide: <a href={post.sourcePath}>{post.sourceTitle}</a></p>}
                   <div class="forum-post-actions">
                     {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
-                    <a href={`/forum/${post.slug}/`}><Icon name="messageCircle" size={15} /> {post.commentsCount} comments</a>
-                    <a href={`/forum/${post.slug}/`}><Icon name="arrowRight" size={15} /> Read discussion</a>
+                    <a href={forumPostPath(post.slug)}><Icon name="messageCircle" size={15} /> {post.commentsCount} comments</a>
+                    <a href={forumPostPath(post.slug)}><Icon name="arrowRight" size={15} /> Read discussion</a>
                   </div>
                 </div>
               </article>
@@ -96,8 +99,8 @@ const sourceTimestamp = (path?: string) => {
           <section class="forum-side-card forum-about" id="community-guidelines">
             <div class="forum-side-card__banner"></div>
             <div class="forum-about__content">
-              <div class="forum-about__title"><span class="forum-community-avatar forum-community-avatar--brand"><img src="/logo.svg" alt="" width="34" height="34" /></span><h2>DotaCheats Community</h2></div>
-              <p>A home for Dota players to trade ideas, learn together, and celebrate the game.</p>
+              <div class="forum-about__title"><span class="forum-community-avatar forum-community-avatar--brand"><img src={NAV_LOGO_SRC} alt="" width="80" height="33" /></span><h2>{t.site.name}</h2></div>
+              <p>A place to discuss MW4 guides, patch impacts, and setup questions pulled from our articles.</p>
               <div class="forum-stats"><span><b>{forumPosts.length}</b> guide discussions</span><span><b>{forumCategories.length}</b> topics</span></div>
               <a class="forum-join" href="/blog/">Explore all guides</a>
             </div>
@@ -116,7 +119,7 @@ const sourceTimestamp = (path?: string) => {
             <ol><li>Keep it friendly and constructive</li><li>Stay on topic and add context</li><li>Mark spoilers and sensitive content</li></ol>
             <a href="#community-guidelines">Read the full guidelines <Icon name="arrowRight" size={14} /></a>
           </section>
-          <p class="forum-sidebar-foot">About · Guidelines · Privacy · Terms<br />© {new Date().getFullYear()} DotaCheats Community</p>
+          <p class="forum-sidebar-foot">About · Guidelines · Privacy · Terms<br />© {new Date().getFullYear()} {t.site.name}</p>
         </aside>
       </div>
     </div>

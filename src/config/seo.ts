@@ -1,14 +1,14 @@
 import { t } from '../i18n';
-import { SITE_DOMAIN as INDEXNOW_HOST_NAME } from './site';
+import { SITE_DOMAIN as INDEXNOW_HOST_NAME, siteAssetUrl } from './site';
 import { getPageSeoEntry } from './pageSeo';
 
 export const SITE_ORIGIN = `https://${t.site.domain}`;
 
-export const DEFAULT_OG_IMAGE = '/images/gameplay/dota-2-map-hack.png';
+export const DEFAULT_OG_IMAGE = '/images/mw4/asset-01.webp';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
-/** @example @dotacheats */
+/** @example @mw4cheat */
 export const TWITTER_SITE = import.meta.env.PUBLIC_TWITTER_SITE as string | undefined;
 
 export const TWITTER_CREATOR = import.meta.env.PUBLIC_TWITTER_CREATOR as string | undefined;
@@ -34,8 +34,7 @@ export function canonicalUrl(pathname: string): string {
 
 export function absoluteAssetUrl(path: string): string {
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
-  const normalized = path.startsWith('/') ? path : `/${path}`;
-  return `${SITE_ORIGIN}${normalized}`;
+  return `${SITE_ORIGIN}${siteAssetUrl(path)}`;
 }
 
 export function resolvePageSeo(pathname: string): { title: string; description: string } {

@@ -16,6 +16,8 @@ interface Props {
   /** Full /faq/ experience — all topics chip bar */
   variant?: 'full' | 'contextual';
   filterTopics?: FaqTopic[];
+  /** Scroll fade-in on the section root (default true) */
+  reveal?: boolean;
 }
 
 const {
@@ -25,6 +27,7 @@ const {
   class: className,
   variant = 'contextual',
   filterTopics: filterTopicsProp,
+  reveal = true,
 } = Astro.props;
 
 const copy = variant === 'full' ? SITE_FAQ_SECTION_COPY : CONTEXTUAL_FAQ_SECTION_COPY;
@@ -43,4 +46,5 @@ const showFilters = filterTopics.length > 1;
   showFilters={showFilters}
   filterTopics={filterTopics}
   class={className}
+  reveal={reveal}
 />

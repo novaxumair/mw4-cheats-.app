@@ -3,6 +3,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const root = process.cwd();
+/** Keep in sync with `SIZED_WEBP_RE` in `src/utils/responsiveImage.ts`. */
 const widths = [320, 400, 512, 640, 960];
 const dirs = [
   'public/images/gameplay',

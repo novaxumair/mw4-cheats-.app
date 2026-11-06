@@ -6,15 +6,15 @@ import { cheatTierIcons, productCategoryIcons } from '../data/sectionIcons';
 import SectionHeader from './SectionHeader.astro';
 import CatalogCard from './CatalogCard.astro';
 import { productPath } from '../utils/path';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/starwind/carousel';
 
 const s = t.products;
+
+const primaryProduct = productPages.find((p) => p.slug === 'mw4-private-suite');
+const utilityProducts = productPages.filter((p) => p.slug !== 'mw4-private-suite');
+
+if (!primaryProduct) {
+  throw new Error('ProductsSection: mw4-private-suite missing from productPages');
+}
 
 function cardIcon(product: (typeof productPages)[number]) {
   if (product.kind === 'tier') {
@@ -31,51 +31,47 @@ function cardLabel(product: (typeof productPages)[number]) {
 }
 ---
 
-<section id="products" class="py-16 md:py-24" aria-labelledby="products-title">
+<section id="products" class="py-16 md:py-24" aria-labelledby="products-title" data-reveal>
   <div class="mx-auto max-w-6xl px-5">
     <SectionHeader eyebrow={s.eyebrow} title={s.title} desc={s.subtitle} titleId="products-title" />
 
-    <div class="products-carousel" data-products-carousel>
-      <Carousel
-        autoInit
-        opts={{ align: 'start', containScroll: 'trimSnaps', dragFree: false }}
-        class="products-carousel__root"
-      >
-        <div class="products-carousel__stage">
-          <CarouselPrevious class="products-carousel__arrow products-carousel__arrow--prev" hidden />
-          <CarouselNext class="products-carousel__arrow products-carousel__arrow--next is-visible" />
-          <div class="products-carousel__viewport">
-            <CarouselContent class="products-carousel__track">
-              {
-                productPages.map((product) => (
-                  <CarouselItem class="products-carousel__slide">
-                    <CatalogCard
-                      class="catalog-card--carousel"
-                      label={cardLabel(product)}
-                      title={product.title}
-                      href={productPath(product.slug)}
-                      buyUrl={product.buyUrl}
-                      features={product.features}
-                      more={product.more}
-                      icon={cardIcon(product)}
-                      badge={product.badge}
-                      variant={product.variant}
-                      buyLabel="Buy now"
-                      viewLabel="View details"
-                      maxFeatures={5}
-                    />
-                  </CarouselItem>
-                ))
-              }
-            </CarouselContent>
-          </div>
-        </div>
-      </Carousel>
+    <div class="mt-12 space-y-6">
+      <CatalogCard
+        class="border-primary/25 ring-1 ring-primary/20"
+        label={cardLabel(primaryProduct)}
+        title={primaryProduct.title}
+        href={productPath(primaryProduct.slug)}
+        buyUrl={primaryProduct.buyUrl}
+        features={primaryProduct.features}
+        more={primaryProduct.more}
+        icon={cardIcon(primaryProduct)}
+        badge={primaryProduct.badge}
+        variant={primaryProduct.variant}
+        buyLabel="Buy now"
+        viewLabel="View details"
+        maxFeatures={5}
+      />
+
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          utilityProducts.map((product) => (
+            <CatalogCard
+              label={cardLabel(product)}
+              title={product.title}
+              href={productPath(product.slug)}
+              buyUrl={product.buyUrl}
+              features={product.features}
+              more={product.more}
+              icon={cardIcon(product)}
+              badge={product.badge}
+              variant={product.variant}
+              buyLabel="Buy now"
+              viewLabel="View details"
+              maxFeatures={5}
+            />
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>
-
-<script>
-  import { setupProductsCarousel } from '../scripts/products-carousel.ts';
-  setupProductsCarousel();
-</script>

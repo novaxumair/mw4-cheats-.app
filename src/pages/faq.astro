@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../i18n';
 import { getAllFaqs } from '../data/faq';
 import { resolvePageSeo } from '../config/seo';
 import { breadcrumbSchema, faqPageSchema, webPageSchema } from '../utils/schema';
@@ -21,23 +22,23 @@ const faqs = getAllFaqs();
   description={seo.description}
   jsonLd={[
     webPageSchema({
-      name: 'FAQ — Dota 2 Cheats & Products',
+      name: `FAQ — ${t.site.name} & MW4 products`,
       description:
-        'Answers about Dota 2 cheat tiers, map hack, scripts, HWID tools, blog guides and checkout at dotacheats.com.',
+        'Answers on MW4 cheat modules, hardware tooling, account workspace, skin changer, enforcement risk, and checkout paths.',
       url: '/faq/',
     }),
     faqPageSchema(faqs.map((f, i) => ({ num: String(i + 1).padStart(2, '0'), q: f.q, a: f.a.replace(/<[^>]+>/g, '') }))),
     breadcrumbSchema(breadcrumbs),
   ]}
 >
-  <section class="border-b border-border bg-muted/10 py-8 md:py-12">
+  <section class="border-b border-border bg-muted/10 py-8 md:py-12" data-reveal>
     <div class="mx-auto max-w-6xl px-5">
       <Breadcrumbs items={breadcrumbs} />
       <div class="mt-6">
         <SectionHeader
           eyebrow="Help center"
-          title="FAQ for cheats, products & guides"
-          desc="Everything about Lite, Pro, Elite tiers, utilities, safety and blog topics—in one place."
+          title="FAQ for MW4 cheats, products & guides"
+          desc="Everything about the private cheat, spoofer, account workspace, skin changer, safety, and blog topics—in one place."
           titleId="faq-page-title"
         />
       </div>

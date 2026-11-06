@@ -1,6 +1,5 @@
 ---
 import SectionHeader from '../SectionHeader.astro';
-import { Button } from '@/components/starwind/button';
 import { Prose } from '@/components/starwind/prose';
 
 interface Block {
@@ -11,15 +10,15 @@ interface Block {
 interface Props {
   overviewTitle?: string;
   blocks: Block[];
-  showToggle: boolean;
 }
 
-const { overviewTitle, blocks, showToggle } = Astro.props;
+const { overviewTitle, blocks } = Astro.props;
 ---
 
 <section
   class="border-t border-border bg-background py-12 md:py-16"
   aria-labelledby="product-description-title"
+  data-reveal
 >
   <div class="mx-auto max-w-6xl px-5">
     <SectionHeader
@@ -30,27 +29,10 @@ const { overviewTitle, blocks, showToggle } = Astro.props;
       wide
     />
 
-    <div class:list={['desc-wrap product-detail__narrow mt-8', showToggle && 'collapsible']} data-desc-wrap>
-      <Prose class="description-content max-w-none">
+    <div class="product-detail__narrow mt-8">
+      <Prose class="max-w-none">
         {blocks.map((block) => (block.type === 'h2' ? <h2>{block.text}</h2> : <p>{block.text}</p>))}
       </Prose>
-      {
-        showToggle && (
-          <div class="mt-6 flex justify-start lg:justify-center">
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              class="rounded-full"
-              data-desc-toggle
-              data-more="Show more"
-              data-less="Show less"
-            >
-              Show more
-            </Button>
-          </div>
-        )
-      }
     </div>
   </div>
 </section>

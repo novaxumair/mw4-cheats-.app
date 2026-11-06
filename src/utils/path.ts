@@ -18,10 +18,10 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/cheats/lite/': PRODUCT_BASE,
   '/cheats/pro': PRODUCT_BASE,
   '/cheats/pro/': PRODUCT_BASE,
-  '/cheats/elite': `${PRODUCT_BASE}elite/`,
-  '/cheats/elite/': `${PRODUCT_BASE}elite/`,
-  '/cheats/compare': '/blog/dota-2-lite-vs-pro/',
-  '/cheats/compare/': '/blog/dota-2-lite-vs-pro/',
+  '/cheats/elite': `${PRODUCT_BASE}mw4-private-suite/`,
+  '/cheats/elite/': `${PRODUCT_BASE}mw4-private-suite/`,
+  '/cheats/compare': '/blog/mw4-cheat-feature-comparison/',
+  '/cheats/compare/': '/blog/mw4-cheat-feature-comparison/',
   '/contact': '/support/',
   '/contact/': '/support/',
 };
@@ -46,7 +46,7 @@ export const ROUTES = {
   blog: '/blog/',
   forum: '/forum/',
   products: PRODUCT_BASE,
-  productsElite: `${PRODUCT_BASE}elite/`,
+  productsElite: `${PRODUCT_BASE}mw4-private-suite/`,
   productsUtilities: `${PRODUCT_BASE}utilities/`,
   faq: '/faq/',
   terms: '/terms/',
@@ -57,6 +57,10 @@ export const ROUTES = {
 
 export function blogPostPath(slug: string): string {
   return `/blog/${slug}/`;
+}
+
+export function forumPostPath(slug: string): string {
+  return `/forum/${slug}/`;
 }
 
 /** @deprecated Use productPath — cheat tier pages live under products. */

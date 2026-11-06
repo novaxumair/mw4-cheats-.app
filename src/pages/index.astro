@@ -9,11 +9,10 @@ import { t } from '../i18n';
 import { resolvePageSeo } from '../config/seo';
 import { faqPageSchema, organizationSchema, websiteSchema } from '../utils/schema';
 import { getLandingFaqs } from '../data/faq';
-import { webpSrc } from '../utils/responsiveImage';
-
+import { siteAssetUrl } from '../config/site';
 const seo = resolvePageSeo('/');
 const homeFaqs = getLandingFaqs();
-const heroLcpImage = webpSrc('/images/gameplay/dota-2-map-hack.png', 512);
+const heroLcpImage = siteAssetUrl('/images/mw4/asset-01.webp');
 ---
 
 <BaseLayout

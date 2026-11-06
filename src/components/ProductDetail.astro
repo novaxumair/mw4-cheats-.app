@@ -30,11 +30,10 @@ const descriptionBlocks = [
   ...product.body,
 ];
 
-const showDescToggle = descriptionBlocks.length > 2;
 ---
 
 <div class="product-detail">
-<section class="product-detail-hero py-8 md:py-12">
+<section class="product-detail-hero py-8 md:py-12" data-reveal>
   <div class="mx-auto max-w-6xl px-5">
     {breadcrumbs && <Breadcrumbs items={breadcrumbs} class="product-detail__breadcrumbs" />}
 
@@ -51,11 +50,7 @@ const showDescToggle = descriptionBlocks.length > 2;
 
 <ProductHighlightsSection product={product} />
 
-<ProductDescriptionSection
-  overviewTitle={product.overview.title}
-  blocks={descriptionBlocks}
-  showToggle={showDescToggle}
-/>
+<ProductDescriptionSection overviewTitle={product.overview.title} blocks={descriptionBlocks} />
 
 <ProductFeaturesSection features={product.fullFeatures} productName={product.name} />
 
@@ -74,21 +69,3 @@ const showDescToggle = descriptionBlocks.length > 2;
   class="border-t border-border bg-background"
 />
 </div>
-
-<script>
-  const initProductDetailUi = () => {
-    document.querySelectorAll('[data-desc-toggle]').forEach((btn) => {
-      if (btn.hasAttribute('data-desc-bound')) return;
-      btn.setAttribute('data-desc-bound', '');
-      btn.addEventListener('click', () => {
-        const wrap = btn.closest('[data-desc-wrap]');
-        if (!wrap) return;
-        const open = wrap.classList.toggle('open');
-        btn.textContent = open ? btn.getAttribute('data-less') ?? 'Show less' : btn.getAttribute('data-more') ?? 'Show more';
-      });
-    });
-  };
-
-  initProductDetailUi();
-  document.addEventListener('astro:after-swap', initProductDetailUi);
-</script>

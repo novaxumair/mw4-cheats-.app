@@ -1,7 +1,7 @@
 {
-  "name": "DotaCheats",
-  "short_name": "DotaCheats",
-  "description": "Dota 2 cheats with scripts, map hack, zoom hack and skin changer for PC.",
+  "name": "MW4 Cheat",
+  "short_name": "MW4 Cheat",
+  "description": "MW4 cheats for PC: private suite, spoofer, account tools, and skin changer guides.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -9,6 +9,12 @@
   "theme_color": "#7f3dee",
   "lang": "en-US",
   "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/apple-touch-icon.png",
       "sizes": "180x180",

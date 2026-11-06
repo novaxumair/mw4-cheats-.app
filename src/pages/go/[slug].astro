@@ -1,0 +1,30 @@
+---
+/**
+ * Static checkout redirects for hosts that serve `dist/` without Node middleware.
+ * BUY buttons use `/go/{slug}/` — these pages issue a 302 to the affiliate URL from checkout-redirects.mjs.
+ */
+import { CHECKOUT_PATH_REDIRECTS, resolveCheckoutPathRedirect } from '../../config/checkout-redirects.mjs';
+
+export function getStaticPaths() {
+  const slugs = new Set<string>();
+  for (const p of CHECKOUT_PATH_REDIRECTS.keys()) {
+    const normalized = p.replace(/\/$/, '');
+    const m = normalized.match(/^\/go\/([^/]+)$/);
+    if (m) slugs.add(m[1]);
+  }
+  return [...slugs].map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const pathnameWithSlash = `/go/${slug}/`;
+const pathnameNoSlash = `/go/${slug}`;
+const destination =
+  resolveCheckoutPathRedirect(pathnameWithSlash) ??
+  resolveCheckoutPathRedirect(pathnameNoSlash);
+
+if (!destination) {
+  return Astro.redirect('/404/', 404);
+}
+
+return Astro.redirect(destination, 302);
+---

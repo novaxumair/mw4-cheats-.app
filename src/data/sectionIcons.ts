@@ -1,15 +1,15 @@
 import type { IconName } from '../components/icons/types';
 
 export const featureIcons: Record<string, IconName> = {
-  Scripts: 'stepCrosshair',
-  'Map Hack / ESP': 'featureEsp',
-  'Minimap & Runes': 'featureRadar',
-  'Auto Combo': 'featureAimbot',
-  'Utility Suite': 'featureUtilitySuite',
-  'Auto Farm Bot': 'compareAutoFarm',
-  'Stream Proof': 'streamProof',
-  'Zoom Hack': 'compareZoomHack',
-  'Cloud Config & Updates': 'compareCloudBackup',
+  'Aim assist & trigger': 'stepCrosshair',
+  'Player ESP': 'featureEsp',
+  'Visibility & bones': 'boneSelect',
+  'Radar & UAV': 'featureRadar',
+  'Loot & DMZ intel': 'lootEsp',
+  'Stream-safe overlay': 'streamProof',
+  'Config profiles': 'compareCloudBackup',
+  'No recoil & spread': 'noRecoil',
+  'Patch-day workflow': 'compareRefresh',
 };
 
 export const whyUsIcons: IconName[] = ['whyShield', 'whyUsers', 'whyMonitor', 'whyHeadphones'];
@@ -40,6 +40,7 @@ export const blogTagIcons: Record<string, IconName> = {
   Features: 'layers',
   Updates: 'refresh',
   Troubleshooting: 'alert',
+  Safety: 'shieldCheck',
 };
 
 export const heroStatusPills: { icon: IconName; label: string }[] = [
@@ -74,6 +75,7 @@ export const cheatTierIcons: Record<string, IconName> = {
   Lite: 'tierLite',
   Pro: 'tierPro',
   Elite: 'tierElite',
+  Cheat: 'crosshair',
 };
 
 export const productCategoryIcons: Record<string, IconName> = {
@@ -82,6 +84,7 @@ export const productCategoryIcons: Record<string, IconName> = {
   'DMA hardware': 'dmaHardware',
   'System utility': 'systemUtility',
   'Account recovery': 'accountRecovery',
+  UGC: 'accountRecovery',
   Cosmetic: 'cosmetic',
 };
 

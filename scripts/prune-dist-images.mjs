@@ -14,6 +14,8 @@ function walk(dir) {
       walk(full);
       continue;
     }
+    // Product pages reference PNG sources in /images/products/; keep them in dist.
+    if (full.split(path.sep).includes('products')) continue;
     if (!/\.png$/i.test(entry.name)) continue;
     // Keep brand/favicon-sized assets if any land under images; gameplay/blog sources go.
     const stat = fs.statSync(full);

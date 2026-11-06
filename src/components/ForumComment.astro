@@ -1,0 +1,36 @@
+---
+import type { ForumComment as ForumCommentData } from '../data/forum';
+
+interface Props {
+  comment: ForumCommentData;
+  op: string;
+  nested?: boolean;
+}
+
+const { comment, op, nested = false } = Astro.props;
+const initial = comment.author.slice(0, 1).toUpperCase();
+---
+
+<div class:list={['forum-comment', nested && 'forum-comment--reply']}>
+  <div class="forum-comment__rail">
+    <span class="forum-comment__avatar">{initial}</span>
+    <span class="forum-comment__line"></span>
+  </div>
+  <div class="forum-comment__body">
+    <div class="forum-comment__meta">
+      <b>u/{comment.author}</b>
+      {comment.author === op && <span class="forum-role forum-role--op">OP</span>}
+      {comment.role === 'mod' && <span class="forum-role forum-role--mod">Mod</span>}
+      <span>·</span>
+      <span>{comment.age}</span>
+      <span>·</span>
+      <span>{comment.score} pts</span>
+    </div>
+    <p>{comment.body}</p>
+    {
+      comment.replies?.map((reply) => (
+        <Astro.self comment={reply} op={op} nested />
+      ))
+    }
+  </div>
+</div>

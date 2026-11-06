@@ -15,7 +15,7 @@ const why = t.whyUs;
 const lastRowIndex = why.rows.length - 1;
 ---
 
-<section id="why-us" class="py-16 md:py-24" aria-labelledby="why-title">
+<section id="why-us" class="py-16 md:py-24" aria-labelledby="why-title" data-reveal>
   <div class="mx-auto max-w-6xl px-5">
     <header class="section-header section-header--wide">
       <p class="section-header__eyebrow">{why.eyebrow}</p>
@@ -27,7 +27,7 @@ const lastRowIndex = why.rows.length - 1;
     <div
       class="mt-14 hidden justify-center lg:flex"
       role="table"
-      aria-label="DotaCheats compared with typical providers"
+      aria-label="MW4 Cheat compared with typical providers"
     >
       <div
         class="why-compare-layout grid w-full max-w-4xl grid-cols-[minmax(0,1fr)_9.25rem_9.25rem] items-stretch gap-x-10 xl:max-w-5xl xl:gap-x-14"
@@ -185,6 +185,7 @@ const lastRowIndex = why.rows.length - 1;
   id="setup-guide"
   class="deployment-section border-y border-border py-14 md:py-16 lg:py-20"
   aria-labelledby="setup-title"
+  data-reveal
 >
   <div class="mx-auto max-w-6xl px-5 md:px-6">
     <header class="section-header section-header--wide deployment-header">

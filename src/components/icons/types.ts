@@ -132,6 +132,7 @@ export type IconName =
   | 'comparePriorityPatch'
   | 'compareDevSupport'
   | 'compareCloudBackup'
+  | 'compareRefresh'
   | 'sidebarHub'
   | 'sidebarLite'
   | 'sidebarPro'

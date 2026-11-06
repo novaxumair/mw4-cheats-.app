@@ -1,4 +1,11 @@
+import { siteAssetUrl } from '../config/site';
+
 const RASTER_EXT = /\.(png|jpe?g|webp)$/i;
+/**
+ * Width-sized WebPs from `scripts/optimize-images.mjs` (must stay in sync with that script).
+ * Do not use `-(\d+)` — filenames like `asset-01.webp` would false-match and break srcset.
+ */
+const SIZED_WEBP_RE = /-(320|400|512|640|960)\.webp$/i;
 
 /** 400w covers ~330px card slots at 1x; 640w covers 2x retina. */
 export const CARD_IMAGE_WIDTHS = [400, 640] as const;
@@ -15,14 +22,45 @@ export function stripRasterExt(src: string): string {
 }
 
 export function webpSrc(src: string, width: number): string {
-  return `${stripRasterExt(src)}-${width}.webp`;
+  let out: string;
+  if (/\.webp$/i.test(src)) {
+    if (SIZED_WEBP_RE.test(src)) {
+      out = src.replace(SIZED_WEBP_RE, `-${width}.webp`);
+    } else {
+      /** Already a single deliverable `.webp` (e.g. hero assets) — no `-400.webp` siblings in /public. */
+      out = src;
+    }
+  } else {
+    out = `${stripRasterExt(src)}-${width}.webp`;
+  }
+  return siteAssetUrl(out);
 }
 
 export function responsiveSrcSet(src: string, widths: readonly number[] = DEFAULT_IMAGE_WIDTHS): string {
+  if (/\.webp$/i.test(src) && !SIZED_WEBP_RE.test(src)) {
+    const w = widths[widths.length - 1] ?? 960;
+    return `${siteAssetUrl(src)} ${w}w`;
+  }
   return widths.map((width) => `${webpSrc(src, width)} ${width}w`).join(', ');
 }
 
 /** Smallest variant — used as img src so Lighthouse and no-srcset clients get the right size. */
 export function defaultWebpSrc(src: string, widths: readonly number[]): string {
+  if (/\.webp$/i.test(src) && !SIZED_WEBP_RE.test(src)) {
+    return siteAssetUrl(src);
+  }
   return webpSrc(src, widths[0] ?? 640);
+}
+
+/** True when `.webp` should be a single `<img src>` (no `-640.webp` width family). */
+export function isSingleFileWebp(src: string): boolean {
+  return /\.webp$/i.test(src) && !SIZED_WEBP_RE.test(src);
+}
+
+/**
+ * Use a plain `<img src>` (no `<picture>` WebP srcset). PNG/JPEG in /public never get the
+ * `-320.webp` pipeline unless listed in optimize-images — product and one-off assets rely on this.
+ */
+export function isDirectRasterSrc(src: string): boolean {
+  return isSingleFileWebp(src) || /\.(png|jpe?g)$/i.test(src);
 }
